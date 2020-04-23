@@ -3,10 +3,78 @@
 	<head><br>
 		<script src="./jquery-3.4.1.slim.min.js"></script>
 		<script type="text/javascript" src="./app.js"></script>
+		<script type="text/javascript" src="./login.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="main.css" />
 	</head>
+	<!-- <BODY>
+		<ul>
+		  <li><a href=#aboutMe>About Me</a></li>
+		  <li><a href=#photos>My Photos</a></li>
+		  <li><a href=#myPlaylist>My Playlist</a></li>
+		  <li><a href=#like>Like</a></li>
+		  <li><a href=#qr>QR</a></li>
+		  <li><a href=#qa>Q&A</a></li>
+		  <li><a href="#contactMe">Contact Me</a></li>
+		</ul>
+	</BODY> -->
+	<script>
+		function navClicked(identifier) {
+			/**
+			 * Disactivating the current activated navbar and section, and activating the destinated navbar and section.
+			 * @type {string}
+			 */
+			const clickedName = identifier.getAttribute("data-option");
+			// document.write(clickedName);
+
+			removeActivated();
+		
+			addActivated(clickedName);
+		
+		}
+		
+		function removeActivated() {
+			/**
+			 * Removes the activated class from activated navbar and section.
+			 * @type {HTMLCollectionOf<Element>}
+			 */
+			const activatedSection = document.getElementsByClassName("activeSection");
+			activatedSection[0].classList.remove("activeSection");
+		}
+		
+		function addActivated(clickedName) {
+			/**
+			 * Adding to the destinated section and nvabar activated class.
+			 * @type {Element | null}
+			 */
+			const newActivatedSection = document.getElementById("main").querySelector(`#${clickedName}Section`);
+			newActivatedSection.classList.add("activeSection");
+			// var newActivatedNav = document.getElementsByClassName(`${clickedName}Nav`)[0];
+			// newActivatedNav.classList.add("activeNav");
+		
+			//stopGame();
+		
+		}
+		
+		function moveTo(destination) {
+		
+			removeActivated();
+		
+			addActivated(destination);
+		
+		}
+
+		</script>
 
 	<body>
-		<div id="score">
+		<div id="navbar">
+				<a class="PictureNav" href="#" data-option="welcome" onclick="navClicked(this)">Welcome</a>
+				<a class="Picture2Nav" href="#" data-option="picture2" onclick="navClicked(this)">Register</a>
+				<a class="Picture2Nav" href="#" data-option="login" onclick="navClicked(this)">Login</a>
+				<a class="Picture2Nav" href="#" data-option="about" onclick="navClicked(this)">About</a>
+		</div>
+
+		<!-- <div id="score">
 			<label for="lblScore">SCORE:</label>
 			<input id="lblScore" type="text" />
 		</div>
@@ -14,8 +82,26 @@
 			<label for="lblTime">TIME:</label>
 			<input id="lblTime" type="text" />
 		</div>
+
 		<div id="game">
 			<canvas id="canvas" height="600" width="600"></canvas>
-		</div>
+		</div> -->
+
+	<div id="main">
+		<section id="welcomeSection"class="activeSection" >
+			<img id="backround-img" src="background.jpg" width=100% height="400">
+				<button class="button">Login
+				</button>
+				<button class="button">
+					Register
+				</button>
+		</section>
+
+		<section id="picture2Section">
+		</section>
+	</div>
+
 	</body>
+
+
 </html>
