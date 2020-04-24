@@ -102,3 +102,12 @@ section {
   .sticky + .content {
     padding-top: 60px;
   }
+  .alert{
+    display: none;
+  }
+
+  #registerSection{
+    text-align: center ;
+    display: block;
+  }
+
