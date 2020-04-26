@@ -6,34 +6,32 @@
 	<p></p>
 	<br><br>
 	<script src="./jquery-3.4.1.slim.min.js"></script>
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-	<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+	<script src="./jquery-3.4.1.slim.min.js"></script>
 
-	<!-- <script type="text/javascript" src="./app.js"></script> -->
-	<!-- <script type="text/javascript" src="./login.js"></script> -->
+	<script type="text/javascript" src="./login.js"></script>
 	<script type="text/javascript" src="./main.js"></script>
+	<script type="text/javascript" src="./modal.js"></script>
 	<script type="text/javascript" src="./register.js"></script>
+	<script type="text/javascript" src="./setting.js"></script>
+	<script type="text/javascript" src="./app.js"></script>
+
+	<!-- <script src="jquery.mockjax.js"></script>
+		<script src="jquery.validate.js"></script> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 	<link rel="stylesheet" type="text/css" href="main.css" />
-	<link href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" rel="stylesheet"/>
+	<link href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" rel="stylesheet" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+	<script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+	<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
 
+	<!-- <link rel="stylesheet" type="text/css" href="modal.css" /> -->
 </head>
-<!-- <BODY>
-		<ul>
-		  <li><a href=#aboutMe>About Me</a></li>
-		  <li><a href=#photos>My Photos</a></li>
-		  <li><a href=#myPlaylist>My Playlist</a></li>
-		  <li><a href=#like>Like</a></li>
-		  <li><a href=#qr>QR</a></li>
-		  <li><a href=#qa>Q&A</a></li>
-		  <li><a href="#contactMe">Contact Me</a></li>
-		</ul>
-	</BODY> -->
 <script>
+
+
 	function navClicked(identifier) {
 		/**
 		 * Disactivating the current activated navbar and section, and activating the destinated navbar and section.
@@ -55,6 +53,7 @@
 		 */
 		const activatedSection = document.getElementsByClassName("activeSection");
 		activatedSection[0].classList.remove("activeSection");
+
 	}
 
 	function addActivated(clickedName) {
@@ -67,17 +66,19 @@
 		// var newActivatedNav = document.getElementsByClassName(`${clickedName}Nav`)[0];
 		// newActivatedNav.classList.add("activeNav");
 
+
 		//stopGame();
 
 	}
 
 	function moveTo(destination) {
-
+		console.log(destination);
 		removeActivated();
 
 		addActivated(destination);
 
 	}
+
 
 </script>
 
@@ -86,31 +87,28 @@
 		<a class="PictureNav" href="#" data-option="welcome" onclick="navClicked(this)">Welcome</a>
 		<a class="Picture2Nav" href="#" data-option="register" onclick="navClicked(this)">Register</a>
 		<a class="Picture2Nav" href="#" data-option="login" onclick="navClicked(this)">Login</a>
-		<a class="Picture2Nav" href="#" data-option="about" onclick="navClicked(this)">About</a>
+		<a class="trigger" href="#" data="about" onclick="openDialog(this)">About</a>
+
+		<!-- <a href="https://www.solodev.com" class="btn btn-info btn-lg cta-open">External Link</a>  -->
+
+	</div>
+	<div id="aboutDialog" class="alert">
+		Hen&Shiran
 	</div>
 
-	<!-- <div id="score">
-			<label for="lblScore">SCORE:</label>
-			<input id="lblScore" type="text" />
-		</div>
-		<div id="time">
-			<label for="lblTime">TIME:</label>
-			<input id="lblTime" type="text" />
-		</div>
 
-		<div id="game">
-			<canvas id="canvas" height="600" width="600"></canvas>
-		</div> -->
+
 
 	<div id="main">
-		<section id="welcomeSection">
+		<section id="welcomeSection" >
 			<img id="backround-img" src="background.jpg" width=100% height="400">
-			<button class="button">Login
+			<button class="button" onclick="moveTo('login')">Login
 			</button>
-			<button class="button" onclick="moveTo('register')">Register
+			<button class="button" onclick="moveTo('register')">
+				Register
 			</button>
 		</section>
-		<section id="registerSection" class="activeSection" s>
+		<section id="registerSection">
 			<form id="registerForm" role="form" method="post" action="">
 				<br>
 				</br>
@@ -142,9 +140,122 @@
 				</br>
 			</form>
 			<button class="button" type="submit" onclick="submitRegister()">Sign-up</button>
-			<div class="alert" id="registeUsernameExists"> Username already exists, please choose another username</div>
+			<div class="alert" data="registeUsernameExists" id="registeUsernameExistsDialog"> Username already exists,
+				please choose another username</div>
 		</section>
+		<section id="loginSection" >
+
+			<div id="loginWindow" align=center>
+				<h1>Login</h1>
+				<form id="loginForm" role="form" method="post" action="">
+					<label>Username:</label>
+					<input id="username" type="text" name="usernameField" placeholder="Username"></input> <br>
+					<label>Password:</label>
+					<input id="password" type="password" name="passwordField" placeholder="Password"></input><br>
+				</form>
+
+				<button class="button" onclick="login()">
+					Login
+				</button>
+				<div data="wrongPassword" id="wrongPasswordDialog" class="alert">
+					Wrong password, try again.
+				</div>
+				<div data="wrongUsername" id="wrongUsernameDialog" class="alert">Username doesn't exist, try again.
+				</div>
+			</div>
+		</section>
+		<section id="settingSection" align=center class="activeSection">
+			<form id="settingForm" role="form" method="post" action="">
+				<br>
+				</br>
+				<label for="upKey">Up: </label>
+				<input id="upKeyField" placeholder="Press button" onkeydown="onPress(event,'up')" name="upKeyField"
+					type="text" size="10" autocomplete="off"></input>
+				<br>
+
+				</br>
+				<label for="downKey">Down: </label>
+				<input id="downKeyField" placeholder="Press button" onkeydown="onPress(event,'down')"
+					name="dowmKeyField" type="text" size="10" autocomplete="off"></input>
+				<br>
+
+				</br>
+				<label for="right">Right: </label>
+				<input id="rightKeyField" placeholder="Press button" onkeydown="onPress(event,'right')"
+					name="rightKeyField" type="text" size="10" autocomplete="off"></input>
+				<br>
+
+
+				</br>
+				<label for="left">Left: </label>
+				<input id="leftKeyField" placeholder="Press button" onkeydown="onPress(event,'left')"
+					name="leftKeyField" size="10" autocomplete="off"></input>
+				<br>
+
+				</br>
+				<label for="ballsNumber">Number of balls: </label><br>
+				<input id="ballsNumberField" class="input-range" type="range" value="2" min="2" max="90">
+				<span id="ballsNumberSpan" class="range-value"> 70</span>
+
+				</br>
+				<label for="ballsColor">Choose balls color:
+					<br>
+					<div>5 points: </div>
+					<input id="ballsColorfor5PointsField" name="ballsColorfor5PointsField" type="color"> </input>
+					<div>15 points: </div>
+					<input id="ballsColorfor15PointsField" name="ballsColorfor15PointsField" type="color"></input>
+					<div>25 points: </div>
+					<input id="ballsColorfor25PointsField" name="ballsColorfor25PointsField" type="color"></input>
+				</label>
+				<br> <br>
+				<label for="durationTime">Duration time:
+					<input id="durationTimeField" type="number" value="60" min="6" name="durationTimeField"> </input>
+					<br> <br>
+
+					<label for="monsterNumber">Number monsters: </label><br>
+					<input id="monsterNumberField" class="input-range" type="range" value="2" min="1" max="4">
+					<span id="monsterNumbeSpan" class="range-value"> 2</span>
+					<br>
+
+
+
+					<button class="button" id="submitSettingGame" onclick="submitSetting()"
+						type="button">Submit</button>
+					<button class="button" id="randomSettingGame" onclick="randomSetting()"
+						type="button">Random</button>
+
+			</form>
+		</section>
+		<section id="gameSection" >
+			<div id="score">
+				<label for="lblScore">SCORE:</label>
+				<input id="lblScore" type="text" />
+			</div>
+			<div id="time">
+				<label for="lblTime">TIME:</label>
+				<input id="lblTime" type="text" />
+			</div>
+			<div id="life">
+				<label for="lblLife">Life:</label>
+				<input id="lblLife" type="text"  value="5"></input>
+			</div>
+
+			<div id="game" align=center>
+				<canvas id="canvas" height="600" width="600"></canvas>
+				<div  data="winner" id="winnerDialog" class="alert">WINNER!</div>
+				<canvas id="canvas2" height="600" width="600"></canvas>
+				<div  data="loser" id="loserDialog" class="alert">LOSER!</div>
+				<div  data="loser100" id="loser100Dialog" class="alert"></div>
+				<button  class= "button" id="restartGame" type="button" onclick="restartGame()">Restart game</button>
+			</div>
+		</div>
+
+		</section>
+
 	</div>
+
+
+
 </body>
 
 
