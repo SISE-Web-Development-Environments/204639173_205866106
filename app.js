@@ -24,12 +24,37 @@ function Start() {
 	
 	setting = JSON.parse(sessionStorage.getItem("setting"));
 	numOfBalls = setting.numOfBall;
-	board = new Array();
+	board = [
+		[4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+		[4, 0, 1, 1, 4, 1, 1, 1, 1, 1, 4, 1, 1, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 1, 4],
+		[4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 4, 4, 4, 4, 1, 4, 1, 4, 1, 4, 4, 4, 4, 1, 4],
+		[4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 1, 1, 1, 1, 4, 1, 4, 1, 4, 1, 1, 1, 1, 1, 1, 4],
+		[4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 1, 1, 4, 1, 4, 4, 4, 4, 4, 1, 4, 1, 4, 1, 4, 1, 4, 4, 4, 1, 4, 4],
+		[4, 1, 4, 1, 1, 1, 1, 1, 4, 1, 4, 1, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 4, 1, 4, 1, 1, 1, 1, 1, 1, 4],
+		[4, 1, 4, 1, 4, 1, 4, 4, 4, 1, 4, 4, 4, 4, 4, 4, 4, 1, 4, 4, 4, 1, 4, 1, 4, 1, 4, 1, 4, 4, 1, 4],
+		[4, 1, 4, 1, 4, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 4, 1, 1, 1, 4, 1, 4, 1, 4, 4, 1, 4],
+		[4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 4, 4, 1, 4, 1, 4, 4, 4, 1, 4, 1, 4, 1, 1, 1, 1, 1, 4, 1, 1, 4],
+		[4, 1, 4, 1, 1, 1, 4, 1, 4, 1, 4, 1, 1, 1, 4, 1, 1, 1, 4, 1, 4, 1, 4, 1, 4, 4, 4, 1, 4, 1, 4, 4],
+		[4, 1, 1, 1, 4, 1, 1, 1, 4, 1, 4, 1, 4, 4, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 1, 1, 4, 1, 4, 1, 1, 4],
+		[4, 4, 4, 1, 4, 1, 4, 4, 4, 1, 4, 1, 1, 1, 4, 1, 4, 1, 4, 1, 1, 1, 4, 1, 4, 1, 4, 1, 4, 4, 1, 4],
+		[4, 1, 1, 1, 4, 1, 4, 1, 1, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 1, 4],
+		[4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 1, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 4],
+		[4, 1, 4, 1, 4, 1, 4, 1, 4, 4, 4, 1, 4, 1, 4, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 4, 1, 4, 1, 1, 4],
+		[4, 1, 4, 1, 1, 1, 1, 1, 1, 1, 4, 1, 4, 1, 4, 4, 4, 1, 4, 4, 4, 4, 1, 4, 4, 4, 4, 1, 4, 4, 1, 4],
+		[4, 1, 4, 4, 4, 4, 4, 4, 4, 1, 4, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 1, 1, 4, 1, 1, 4],
+		[4, 1, 1, 1, 1, 1, 1, 1, 4, 1, 4, 1, 4, 4, 4, 4, 1, 4, 1, 4, 4, 4, 4, 4, 1, 4, 1, 4, 4, 1, 4, 4],
+		[4, 1, 4, 4, 4, 1, 4, 1, 4, 1, 4, 1, 1, 1, 1, 4, 1, 4, 1, 4, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 4],
+		[4, 1, 1, 1, 1, 1, 4, 1, 4, 1, 4, 1, 4, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 4, 4, 1, 4, 1, 4],
+		[4, 1, 4, 4, 4, 1, 4, 1, 1, 1, 4, 1, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 1, 1, 4, 1, 4, 1, 4],
+		[4, 1, 4, 1, 1, 1, 4, 1, 4, 1, 4, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 4, 4, 1, 4, 1, 4, 1, 4],
+		[4, 1, 1, 1, 4, 1, 1, 1, 4, 1, 1, 1, 1, 4, 1, 1, 1, 4, 1, 1, 1, 4, 1, 1, 1, 1, 1, 4, 1, 1, 1, 4],
+		[4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+	];
 	Cell = new Array();
 	score = 0;
 	life = 5;
 	pac_color = "yellow";
-	var cnt = 225;
+	var cnt = 768;
 	food_remain = setting.numOfBall;
 	var pacman_remain = 1;
 	var monster_remain = setting.monster;
@@ -41,24 +66,15 @@ function Start() {
 	let isPacmanDrow = false;
 	var index = 0;
 	start_time = new Date();
-	createWall();
-	for (var i = 0; i < 15 && cnt > 0; i++) {
-		if (board[i] == null) {
-			board[i] = new Array();
-		}
+	// createWall();
+	for (var i = 0; i < 24 && cnt > 0; i++) {
 		// board[i] = new Array();
 		//put obstacles in (i=3,j=3) and (i=3,j=4) and (i=3,j=5), (i=6,j=1) and (i=6,j=2)
-		for (var j = 0; j < 15 && cnt > 0; j++) {
-			// if (
-			// 	(i == 3 && j == 3) ||
-			// 	(i == 3 && j == 4) ||
-			// 	(i == 3 && j == 5) ||
-			// 	(i == 6 && j == 1) ||
-			// 	(i == 6 && j == 2)
-			// ) {
-			// 	board[i][j] = 4;//wall!!!!
+		for (var j = 0; j < 32 && cnt > 0; j++) {
 			if (board[i][j] == 4) {
-			} else {
+			} 
+			else {
+				board[i][j]=0;
 				var randomNum = Math.random();
 				if (randomNum <= (1.0 * food_remain * 0.1) / cnt) {
 					food_remain--;
@@ -79,8 +95,6 @@ function Start() {
 					board[i][j] = 1;// enter once time- pacmen place
 					monsters[monster_remain].i = i;
 					monsters[monster_remain].j = j;
-					console.log(monsters[monster_remain]);
-
 				} else {
 					board[i][j] = 0;//empty place;
 					Cell.push(i);
@@ -89,9 +103,11 @@ function Start() {
 					index++;
 				}
 				cnt--;
+
 			}
 		}
 	}
+
 	while (food_remain > 0 || pacman_remain > 0) {
 		var emptyCell = findRandomEmptyCell(board);
 		var randomNum = Math.random();
@@ -134,16 +150,18 @@ function Start() {
 }
 
 function findRandomEmptyCell(board) {
-	var i = Math.floor(Math.random() * Cell.length - 1);
-	while (i < 0) {
-		var i = Math.floor(Math.random() * Cell.length - 1);
+	var i = Math.floor(Math.random() * Cell.length - 2);
+	while (i < 0 || i%2!=0) {
+		i = Math.floor(Math.random() * Cell.length - 2);
 	}
+
 	var row = Cell[i];
 	var col = Cell[i + 1];
+	
 	while (board[row][col] != 0) {
-		var i = Math.floor(Math.random() * Cell.length - 1);
-		while (i < 0) {
-			var i = Math.floor(Math.random() * Cell.length - 1);
+		var i = Math.floor(Math.random() * Cell.length - 2);
+		while (i < 0 || i%2!=0) {
+			var i = Math.floor(Math.random() * Cell.length - 2);
 		}
 		row = Cell[i];
 		col = Cell[i + 1];
@@ -171,11 +189,11 @@ function Draw() {
 	canvas.width = canvas.width; //clean board
 	lblScore.value = score;
 	lblTime.value = time_elapsed;
-	for (var i = 0; i < 10; i++) {
-		for (var j = 0; j < 10; j++) {
+	for (var i = 0; i < board.length; i++) {
+		for (var j = 0; j < board[0].length; j++) {
 			var center = new Object();
-			center.x = i * 60 + 30;
-			center.y = j * 60 + 30;
+			center.x = i * 20 ;
+			center.y = j * 20 ;
 			var x = GetKeyPressed();
 
 			if (board[i][j] == 2) {//pacman
@@ -189,42 +207,42 @@ function Draw() {
 
 			// 	}
 				context.beginPath();
-				context.arc(center.x, center.y, 30, 0.15 * Math.PI, 1.85 * Math.PI); // half circle
+				context.arc(center.x, center.y, 13, 0.15 * Math.PI, 1.85 * Math.PI); // half circle
 				context.lineTo(center.x, center.y);
 				context.fillStyle = pac_color; //color
 				context.fill();
 				context.beginPath();
-				context.arc(center.x + 5, center.y - 15, 5, 0, 2 * Math.PI); // circle
+				context.arc(center.x + 5, center.y - 10, 2.5, 0, 2 * Math.PI); // circle
 				context.fillStyle = "black"; //color
 				context.fill();
 			} else if (board[i][j] == 1 || board[i][j] == 6 || board[i][j] == 16 || board[i][j] == 26) {//monster
 				context.beginPath();
-				context.arc(center.x, center.y, 30, 0.15 * Math.PI, 1.85 * Math.PI); // half circle
+				context.arc(center.x, center.y, 13, 0.15 * Math.PI, 1.85 * Math.PI); // half circle
 				context.lineTo(center.x, center.y);
 				context.fillStyle = "blue"; //color
 				context.fill();
 				context.beginPath();
-				context.arc(center.x + 5, center.y - 15, 5, 0, 2 * Math.PI); // circle
+				context.arc(center.x + 5, center.y - 10, 5, 0, 2 * Math.PI); // circle
 				context.fillStyle = "black"; //color
 				context.fill();
 			} else if (board[i][j] == 5) {
 				context.beginPath();
-				context.arc(center.x, center.y, 15, 0, 2 * Math.PI); // circle
+				context.arc(center.x, center.y, 7.5, 0, 2 * Math.PI); // circle
 				context.fillStyle = setting.fivePoint; //color
 				context.fill();
 			} else if (board[i][j] == 15) {
 				context.beginPath();
-				context.arc(center.x, center.y, 15, 0, 2 * Math.PI); // circle
+				context.arc(center.x, center.y, 7.5, 0, 2 * Math.PI); // circle
 				context.fillStyle = setting.fifteenPoint; //color
 				context.fill();
 			} else if (board[i][j] == 25) {
 				context.beginPath();
-				context.arc(center.x, center.y, 15, 0, 2 * Math.PI); // circle
+				context.arc(center.x, center.y, 7.5, 0, 2 * Math.PI); // circle
 				context.fillStyle = setting.twentyFivePoint; //color
 				context.fill();
 			} else if (board[i][j] == 4) {
 				context.beginPath();
-				context.rect(center.x - 30, center.y - 30, 60, 60);
+				context.rect(center.x, center.y , 20, 20);
 				context.fillStyle = "grey"; //color
 				context.fill();
 			}
