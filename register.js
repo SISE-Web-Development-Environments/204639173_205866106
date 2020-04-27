@@ -58,7 +58,7 @@ function submitRegister() {
 
         var user =getUser(username);
         if (user != null) {
-            $("#registeUsernameExists").dialog();
+            openDialog(document.getElementById("registeUsernameExistsDialog"));
         } else {
             creatrUser();
             moveTo('login');

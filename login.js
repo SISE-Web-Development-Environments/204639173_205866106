@@ -26,13 +26,13 @@ function login(){
     var username = document.getElementById("username").value;
     var user=getUser(username);
     if(user==null){
-        $( "#wrongUsername" ).dialog();
+        openDialog(document.getElementById("wrongUsernameDialog"));
     }else{
         if(user.password == pass){
             moveTo("setting");
 
         }else{
-            $( "#wrongPassword" ).dialog();
+            openDialog(document.getElementById("wrongPasswordDialog"));
         }
     }
 }

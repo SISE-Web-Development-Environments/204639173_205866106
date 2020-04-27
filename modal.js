@@ -1,27 +1,21 @@
 
-  var over=false;
-    function openDialog(){ 
+  var over=true;
+    function openDialog(object){ 
+      const data = object.getAttribute("data");
       window.onmousedown=function(e){
         if((e.button==0 || e.button==2) && over){
-            $( 'div.aboutDialog1' ).dialog("close");
-            //over=false;
+            $( `#${data}Dialog` ).dialog("close");
         }
       }
-        $( '#aboutDialog' ).dialog();
-        over=false;
-        $( "div.aboutDialog1" )
+
+        $(  `#${data}Dialog` ).dialog();
+        $( "div.alert" )
         .mouseover(function() {
           over=false;
-          console.log("now we in");
 
         });
-        $( "div.aboutDialog1" ).mouseout(function() {
+        $(  `#${data}Dialog` ).mouseout(function() {
           over=true;
-          console.log("now we out");
-        });
-        $( "div.mainDialog" ).mouseover(function() {
-          over=true;
-          console.log("now we main");
         });
     }
 
