@@ -56,7 +56,7 @@ function submitSetting() {
     var numOfMonsters = document.getElementById("monsterNumberField").value;
 
     var setting = { up: upKey, down: downKey, left: leftKey, right: rightKey, numOfBall: numOfBalls, fivePoint: fivePoint, fifteenPoint: fifteenPoint, twentyFivePoint: twentyFivePoint, duration: durationTime, monster: numOfMonsters };
-    // console.log(setting);
+    //  console.log(setting);
     sessionStorage.clear();
     sessionStorage.setItem("setting", JSON.stringify(setting));
     Start();
