@@ -29,6 +29,7 @@ function login(){
         openDialog(document.getElementById("wrongUsernameDialog"));
     }else{
         if(user.password == pass){
+			setUserName(username);
             moveTo("setting");
 
         }else{

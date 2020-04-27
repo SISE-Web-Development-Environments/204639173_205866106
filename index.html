@@ -72,7 +72,6 @@
 	}
 
 	function moveTo(destination) {
-		console.log(destination);
 		removeActivated();
 
 		addActivated(destination);
@@ -100,7 +99,7 @@
 
 
 	<div id="main">
-		<section id="welcomeSection" >
+		<section id="welcomeSection">
 			<img id="backround-img" src="background.jpg" width=100% height="400">
 			<button class="button" onclick="moveTo('login')">Login
 			</button>
@@ -143,8 +142,7 @@
 			<div class="alert" data="registeUsernameExists" id="registeUsernameExistsDialog"> Username already exists,
 				please choose another username</div>
 		</section>
-		<section id="loginSection" >
-
+		<section id="loginSection">
 			<div id="loginWindow" align=center>
 				<h1>Login</h1>
 				<form id="loginForm" role="form" method="post" action="">
@@ -226,35 +224,63 @@
 
 			</form>
 		</section>
-		<section id="gameSection" >
-			<div id="score">
-				<label for="lblScore">SCORE:</label>
-				<input id="lblScore" type="text" />
-			</div>
-			<div id="time">
-				<label for="lblTime">TIME:</label>
-				<input id="lblTime" type="text" />
-			</div>
-			<div id="life">
-				<label for="lblLife">Life:</label>
-				<input id="lblLife" type="text"  value="5"></input>
-			</div>
 
-			<div id="game" align=center>
-				<canvas id="canvas" height="400" width="900" style="border:1px solid"></canvas>
-				<div  data="winner" id="winnerDialog" class="alert">WINNER!</div>
-				<!-- <canvas id="canvas2" height="600" width="600"></canvas> -->
-				<div  data="loser" id="loserDialog" class="alert">LOSER!</div>
-				<div  data="loser100" id="loser100Dialog" class="alert"></div>
-				<button  class= "button" id="restartGame" type="button" onclick="restartGame()">Restart game</button>
+		<section id="gameSection">
+			<div>
+				<div id="score">
+					<label for="lblScore">SCORE:</label>
+					<input id="lblScore" type="text" />
+				</div>
+				<div id="username">
+					<label for="lblUsername">Player:</label>
+					<input id="lblUsername" type="text" value="" />
+				</div>
+				<div id="time">
+					<label for="lblTime">TIME:</label>
+					<input id="lblTime" type="text" />
+				</div>
+				<div id="life">
+					<label for="lblLife">Life:</label>
+					<input id="lblLife" type="text" value="5"></input>
+				</div>
 			</div>
-		</div>
+			<div id="settingToShow">
+				<div id="buttonUpDiv"></div>
+				<div id="buttonDownDiv"></div>
+				<div id="buttonRightDiv"></div>
+				<div id="buttonLeftDiv"></div>
+				<div id="numberOfBallsDiv"></div>
+				<div id="numberOfMonsterDiv"></div>
+				<br>
+				<label style="display: flex;">5 point:
+					<div class="colorChoose" id="color5pointDiv"></div>
+				</label>
+				<br>
+				<label style="display: flex;">15 point:
+					<div class="colorChoose" id="color15pointDiv" ></div>
+				</label>
+				<label style="display: flex;">25 point:
+					<div  class="colorChoose" id="color25pointDiv">
+				</label>
 
-		</section>
+			</div>
 
 	</div>
 
+	<div id="game" align=center>
+		<canvas id="canvas" height="400" width="900" style="border:1px solid"></canvas>
+		<div data="winner" id="winnerDialog" class="alert">WINNER!</div>
+		<!-- <canvas id="canvas2" height="600" width="600"></canvas> -->
+		<div data="loser" id="loserDialog" class="alert">LOSER!</div>
+		<div data="loser100" id="loser100Dialog" class="alert"></div>
+		<button class="button" id="restartGame" type="button" onclick="restartGame()">Restart game</button>
+	</div>
 
+	</div>
+
+	</section>
+
+	</div>
 
 </body>
 

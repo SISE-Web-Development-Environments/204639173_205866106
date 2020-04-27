@@ -145,3 +145,9 @@ button.btn-modal.btn-close {
 .alert{
   display: none;
 }
+
+.colorChoose{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%
+}

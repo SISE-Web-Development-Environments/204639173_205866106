@@ -14,14 +14,16 @@ var emptyCell = new Array();
 var numOfBalls;
 var monsters;
 var life;
+var username;
 $(document).ready(function () {
-
 	context = canvas.getContext("2d");
 });
 
 function Start() {
-
+	
+	document.getElementById("lblUsername").value=username;
 	setting = JSON.parse(sessionStorage.getItem("setting"));
+	showSetting();
 	numOfBalls = setting.numOfBall;
 	board = [
 		[4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
@@ -429,4 +431,24 @@ function restartGame() {
 	window.clearInterval(intervalMonster);
 	document.getElementById("lblLife").value = 5;
 	Start();
+}
+
+function setUserName(userName){
+	username=userName;
+}
+
+function showSetting(){
+	var currentDiv = document.getElementById("settingToShow").childNodes; 
+	
+	currentDiv[1].innerText="Button up: "+ setting.up; 
+	currentDiv[3].innerText="Button Down: "+ setting.down; 
+	currentDiv[5].innerText="Button Right: "+ setting.right; 
+	currentDiv[7].innerText="Button Left: "+ setting.left;
+	currentDiv[9].innerText="Food: "+ setting.numOfBall;
+	currentDiv[11].innerText="Monsters: "+ setting.monster;
+	$("#color5pointDiv").css("background-color",setting.fivePoint);
+	$("#color15pointDiv").css("background-color",setting.fifteenPoint);
+	$("#color25pointDiv").css("background-color",setting.twentyFivePoint);
+
+
 }
