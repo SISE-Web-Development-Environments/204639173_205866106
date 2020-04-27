@@ -29,7 +29,7 @@ function Start() {
 	score = 0;
 	life = 5;
 	pac_color = "yellow";
-	var cnt = 100;
+	var cnt = 225;
 	food_remain = setting.numOfBall;
 	var pacman_remain = 1;
 	var monster_remain = setting.monster;
