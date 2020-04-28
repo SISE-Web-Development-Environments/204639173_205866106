@@ -7,9 +7,15 @@ var upKey = 38;
 var downKey = 40;
 var rightKey = 39;
 var leftKey = 37;
+//for show setting in game:
+var upKeyString="ArrowUp";
+var downKeyString="ArrowDown";
+var rightKeyString="ArrowRight";
+var leftKeyString="ArrowRight";
 
 function onPress(e, keyName) {
     $(`#${keyName}KeyField`).attr("placeholder", e.key).val("").focus().blur();
+    window[keyName + 'KeyString'] = e.key;
     window[keyName + 'Key'] = e.which;
 }
 
@@ -35,7 +41,7 @@ function randomSetting() {
     rightKey = 39;
     $("#rightKeyField").attr("placeholder", "ArrowRight");
     leftKey = 37;
-    $("#leftKeyField").attr("placeholder", "ArrowLeft");
+    $("#leftKeyField").attr("placeholder","ArrowRight");
 }
 
 function getRandomColor() {

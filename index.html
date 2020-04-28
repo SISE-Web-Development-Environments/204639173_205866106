@@ -82,6 +82,7 @@
 </script>
 
 <body>
+
 	<div id="navbar">
 		<a class="PictureNav" href="#" data-option="welcome" onclick="navClicked(this)">Welcome</a>
 		<a class="Picture2Nav" href="#" data-option="register" onclick="navClicked(this)">Register</a>
@@ -94,9 +95,6 @@
 	<div id="aboutDialog" class="alert">
 		Hen&Shiran
 	</div>
-
-
-
 
 	<div id="main">
 		<section id="welcomeSection">
@@ -164,33 +162,56 @@
 		</section>
 		<section id="settingSection" align=center class="activeSection">
 			<form id="settingForm" role="form" method="post" action="">
-				<br>
-				</br>
-				<label for="upKey">Up: </label>
-				<input id="upKeyField" placeholder="Press button" onkeydown="onPress(event,'up')" name="upKeyField"
-					type="text" size="10" autocomplete="off"></input>
-				<br>
+				<table align=center>
+					<tr>
+						<td></td>
+						<td>
+							<input id="upKeyField" placeholder="Press button" onkeydown="onPress(event,'up')"
+								name="upKeyField" type="text" size="10" autocomplete="off"></input>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<!-- <label for="upKey">Up: </label> -->
+							<img id="upKey-img" src="arrowUp.png" width="60" height="60"></img>
 
-				</br>
-				<label for="downKey">Down: </label>
-				<input id="downKeyField" placeholder="Press button" onkeydown="onPress(event,'down')"
-					name="dowmKeyField" type="text" size="10" autocomplete="off"></input>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>
+							<!-- <label for="left">Left: </label> -->
+							<input id="leftKeyField" placeholder="Press button" onkeydown="onPress(event,'left')"
+								name="leftKeyField" size="10" autocomplete="off"></input>
+							<img id="leftKey-img" src="arrowLeft.png" width="60" height="60"></img>
+						</td>
+						<td> </td>
+						<td>
+							<!-- <label for="right">Right: </label> -->
+							<img id="rightKey-img" src="arrowRight.png" width="60" height="60"></img>
+							<input id="rightKeyField" placeholder="Press button" onkeydown="onPress(event,'right')"
+								name="rightKeyField" type="text" size="10" autocomplete="off"></input>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<!-- <label for="downKey">Down: </label> -->
+							<img id="dowmKey-img" src="arrowDown.png" width="60" height="60"></img>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<input id="downKeyField" placeholder="Press button" name="dowmKeyField" type="text"
+								size="10" autocomplete="off" onkeydown="onPress(event,'down')"></input>
+						</td>
+						<td></td>
+					</tr>
+				</table>
 				<br>
-
-				</br>
-				<label for="right">Right: </label>
-				<input id="rightKeyField" placeholder="Press button" onkeydown="onPress(event,'right')"
-					name="rightKeyField" type="text" size="10" autocomplete="off"></input>
-				<br>
-
-
-				</br>
-				<label for="left">Left: </label>
-				<input id="leftKeyField" placeholder="Press button" onkeydown="onPress(event,'left')"
-					name="leftKeyField" size="10" autocomplete="off"></input>
-				<br>
-
-				</br>
 				<label for="ballsNumber">Number of balls: </label><br>
 				<input id="ballsNumberField" class="input-range" type="range" value="2" min="2" max="90">
 				<span id="ballsNumberSpan" class="range-value"> 70</span>
@@ -226,52 +247,124 @@
 		</section>
 
 		<section id="gameSection">
-			<div>
-				<div id="score">
-					<label for="lblScore">SCORE:</label>
-					<input id="lblScore" type="text" />
-				</div>
-				<div id="username">
-					<label for="lblUsername">Player:</label>
-					<input id="lblUsername" type="text" value="" />
-				</div>
-				<div id="time">
-					<label for="lblTime">TIME:</label>
-					<input id="lblTime" type="text" />
-				</div>
-				<div id="life">
-					<label for="lblLife">Life:</label>
-					<input id="lblLife" type="text" value="5"></input>
-				</div>
-			</div>
-			<div id="settingToShow">
-				<div id="buttonUpDiv"></div>
-				<div id="buttonDownDiv"></div>
-				<div id="buttonRightDiv"></div>
-				<div id="buttonLeftDiv"></div>
-				<div id="numberOfBallsDiv"></div>
-				<div id="numberOfMonsterDiv"></div>
-				<br>
-				<label style="display: flex;">5 point:
-					<div class="colorChoose" id="color5pointDiv"></div>
-				</label>
-				<br>
-				<label style="display: flex;">15 point:
-					<div class="colorChoose" id="color15pointDiv"></div>
-				</label>
-				<label style="display: flex;">25 point:
-					<div class="colorChoose" id="color25pointDiv">
-				</label>
 
-				<div id="game" align=center>
-					<canvas id="canvas" height="700" width="700" style="border:1px solid"></canvas>
+			<div style="float: left; display: flex; justify-content: center;">
+				<div>
+					<div id="score">
+						<label for="lblScore">SCORE:</label>
+						<input id="lblScore" type="text" />
+					</div>
+					<div id="username">
+						<label for="lblUsername">Player:</label>
+						<input id="lblUsername" type="text" value="" />
+					</div>
+					<div id="time">
+						<label for="lblTime">TIME:</label>
+						<input id="lblTime" type="text" />
+					</div>
+					<div id="life">
+						<label for="lblLife">Life:</label>
+						<input id="lblLife" type="text" value="5"></input>
+					</div>
+				</div>
+				<div id="game">
+					<canvas id="canvas" height="700" width="800" style="border:1px solid"></canvas>
 					<div data="winner" id="winnerDialog" class="alert">WINNER!</div>
-					<!-- <canvas id="canvas2" height="600" width="600"></canvas> -->
 					<div data="loser" id="loserDialog" class="alert">LOSER!</div>
 					<div data="loser100" id="loser100Dialog" class="alert"></div>
 					<button class="button" id="restartGame" type="button" onclick="restartGame()">Restart game</button>
 				</div>
 
+				<div id="settingToShow">
+					<table>
+						<tr>
+							<td>
+								<div>UP: </div>
+							</td>
+							<td>
+								<div id="buttonUpDiv"></div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div>UP: </div>
+							</td>
+							<td>
+								<div id="buttonDownDiv"></div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div>UP: </div>
+							</td>
+							<td>
+								<div id="buttonRightDiv"></div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div>UP: </div>
+							</td>
+							<td>
+								<div id="buttonLeftDiv"></div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div>UP: </div>
+							</td>
+							<td>
+								<div id="numberOfBallsDiv"></div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div>UP: </div>
+							</td>
+							<td>
+								<div id="numberOfMonsterDiv"></div>
+							</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td>
+								<div>5 point: </div>
+							</td>
+							<td>
+								<div class="colorChoose" id="color5pointDiv"></div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div>15 point: </div>
+							</td>
+							<td>
+								<div class="colorChoose" id="color15pointDiv"></div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div>25 point: </div>
+							</td>
+							<td>
+								<div class="colorChoose" id="color25pointDiv">
+							</td>
+						</tr>
+
+						<!-- <label style="display: flex;">5 point:
+							<div class="colorChoose" id="color5pointDiv"></div>
+						</label>
+						<br> -->
+						<!-- <label style="display: flex;">15 point:
+							<div class="colorChoose" id="color15pointDiv"></div>
+						</label>
+						<label style="display: flex;">25 point:
+							<div class="colorChoose" id="color25pointDiv">
+						</label> -->
+					</table>
+
+				</div>
 			</div>
 
 	</div>
