@@ -257,24 +257,22 @@
 				</label>
 				<br>
 				<label style="display: flex;">15 point:
-					<div class="colorChoose" id="color15pointDiv" ></div>
+					<div class="colorChoose" id="color15pointDiv"></div>
 				</label>
 				<label style="display: flex;">25 point:
-					<div  class="colorChoose" id="color25pointDiv">
+					<div class="colorChoose" id="color25pointDiv">
 				</label>
 
+				<div id="game" align=center>
+					<canvas id="canvas" height="700" width="700" style="border:1px solid"></canvas>
+					<div data="winner" id="winnerDialog" class="alert">WINNER!</div>
+					<!-- <canvas id="canvas2" height="600" width="600"></canvas> -->
+					<div data="loser" id="loserDialog" class="alert">LOSER!</div>
+					<div data="loser100" id="loser100Dialog" class="alert"></div>
+					<button class="button" id="restartGame" type="button" onclick="restartGame()">Restart game</button>
+				</div>
+
 			</div>
-
-	</div>
-
-	<div id="game" align=center>
-		<canvas id="canvas" height="400" width="900" style="border:1px solid"></canvas>
-		<div data="winner" id="winnerDialog" class="alert">WINNER!</div>
-		<!-- <canvas id="canvas2" height="600" width="600"></canvas> -->
-		<div data="loser" id="loserDialog" class="alert">LOSER!</div>
-		<div data="loser100" id="loser100Dialog" class="alert"></div>
-		<button class="button" id="restartGame" type="button" onclick="restartGame()">Restart game</button>
-	</div>
 
 	</div>
 
