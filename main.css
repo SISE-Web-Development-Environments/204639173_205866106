@@ -1,13 +1,15 @@
 body {
     background-color: lightgrey;
     min-width:1366px;
-    min-height:768px;
+    min-height: 100vh;
+    
 
 
 }
 
 section {
     display: none;
+    text-align:center;
 }
 
 .activeSection {
@@ -164,4 +166,62 @@ canvas {
   margin-left: auto;
   margin-right: auto;
   display: block;
+}
+/**linkedin*/
+.fa {
+  padding: 15px;
+  font-size: 30px;
+  width: 20spx;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 5px;
+  border-radius: 50%;
+  padding-top: 8.5px;
+
+
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+
+
+}
+/*logo*/
+#logo {
+float: left;
+height: 100px; 
+
+
+}
+/*footer*/
+ #footer{
+  text-align: center;
+  background-color: #333;
+  padding: 7px;
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+  height: 5.5rem;            /* Footer height */
+
+} 
+/* #footer {
+  position: absolute;
+  bottom: 100;
+  width: 100%;
+  height: 2.5rem;            /* Footer height */
+
+#footer a {
+  float: left;
+  text-align: center;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  /* padding: 14px 16px; */
+  text-decoration: none;
+  font-size: 17px;
 }

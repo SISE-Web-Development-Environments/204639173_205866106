@@ -14,11 +14,9 @@
 	<script type="text/javascript" src="./register.js"></script>
 	<script type="text/javascript" src="./setting.js"></script>
 	<script type="text/javascript" src="./app.js"></script>
-
-	<!-- <script src="jquery.mockjax.js"></script>
-		<script src="jquery.validate.js"></script> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<link rel="stylesheet" type="text/css" href="main.css" />
 	<link href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" rel="stylesheet" />
@@ -82,18 +80,24 @@
 </script>
 
 <body>
-
 	<div id="navbar">
+		<img src="./logo.png" id="logo" href="#" data-option="welcome" onclick="navClicked(this)"/>
+		<ul>
 		<a class="PictureNav" href="#" data-option="welcome" onclick="navClicked(this)">Welcome</a>
 		<a class="Picture2Nav" href="#" data-option="register" onclick="navClicked(this)">Register</a>
 		<a class="Picture2Nav" href="#" data-option="login" onclick="navClicked(this)">Login</a>
 		<a class="trigger" href="#" data="about" onclick="openDialog(this)">About</a>
+		</ul>
 
 		<!-- <a href="https://www.solodev.com" class="btn btn-info btn-lg cta-open">External Link</a>  -->
 
 	</div>
-	<div id="aboutDialog" class="alert">
-		Hen&Shiran
+	<div id="aboutDialog" class="alert" width="500px" height="300px"> 
+		Welcome to our Pacman project in Web Development enviroment course.
+		In the assignment we had a difficulty in the design but we enjoy it at the end.
+		<br>Submitting:Hen Debi(204639173), Shiran Golzar(205866106)
+		Hen:<a href="https://www.linkedin.com/in/hen-debi-0547ba1a2/" class="fa fa-linkedin"></a>
+		Shiran:<a href="https://www.linkedin.com/in/shiran-golzar-4762b210a/" class="fa fa-linkedin"></a>
 	</div>
 
 	<div id="main">
@@ -106,32 +110,33 @@
 			</button>
 		</section>
 		<section id="registerSection">
+			<br>
+			<h1>User Registeration</h1>
 			<form id="registerForm" role="form" method="post" action="">
-				<br>
-				</br>
-				<label for="name">Your name: </label>
-				<input id="nameField" name="nameField" type="text"></input>
-				<br>
-
-				</br>
-				<label for="username">UserName: </label>
-				<input id="usernameField" name="usernameField" type="text"></input>
+				
+				<label for="name"><b>Your name:</b> </label><br>
+				<input id="nameField" name="nameField" type="text" placeholder="Name"></input>
 				<br>
 
 				</br>
-				<label for="password">Password: </label>
-				<input id="passwordField" name="passwordField" type="password"></input>
+				<label for="username"><b>Username:</b> </label><br>
+				<input id="usernameField" name="usernameField" type="text" placeholder="Username"></input>
+				<br>
+
+				</br>
+				<label for="password"><b>Password</b> </label><br>
+				<input id="passwordField" name="passwordField" type="password"placeholder="Password"></input>
 				<br>
 
 
 				</br>
-				<label for="email">Email: </label>
-				<input id="emailField" name="emailField"></input>
+				<label for="email"><b>Email:</b> </label><br>
+				<input id="emailField" name="emailField"placeholder="Email"></input>
 				<br>
 
 				</br>
-				<label for="Birthday">Birthday: </label>
-				<input id="birthdayField" name="birthdayField" type="date"></input>
+				<label for="Birthday"><b>Birthday</b> </label><br>
+				<input id="birthdayField" name="birthdayField" type="date"placeholder="Date"></input>
 				<br>
 
 				</br>
@@ -142,11 +147,12 @@
 		</section>
 		<section id="loginSection">
 			<div id="loginWindow" align=center>
+				<br>
 				<h1>Login</h1>
 				<form id="loginForm" role="form" method="post" action="">
-					<label>Username:</label>
+					<label><b>Username:</b></label><br>
 					<input id="username" type="text" name="usernameField" placeholder="Username"></input> <br>
-					<label>Password:</label>
+					<label><b>Password:</b></label><br>
 					<input id="password" type="password" name="passwordField" placeholder="Password"></input><br>
 				</form>
 
@@ -375,6 +381,17 @@
 		</section>
 
 	</div>
+		
+	<footer align="center" id=footer>
+		<br>
+		<a>This web site conatin the classic game of Pacman</a>
+		<a> | The web site was created for the Web Development Enviroments     |     For more details: 050-9801189</a>
+		<a> | Hen:</a>
+		<a href="https://www.linkedin.com/in/hen-debi-0547ba1a2/" class="fa fa-linkedin"></a>|
+		<a> | Shiran:</a>
+		<a href="https://www.linkedin.com/in/shiran-golzar-4762b210a/" class="fa fa-linkedin"></a>
+	
+	</footer>
 
 </body>
 
