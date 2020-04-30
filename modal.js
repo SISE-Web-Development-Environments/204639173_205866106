@@ -7,12 +7,19 @@ function openDialog(object) {
       $(`#${data}Dialog`).dialog("close");
     }
   }
-  console.log(`${data}Dialog`);
   if (`${data}Dialog` == "loser100Dialog") {
     console.log( document.getElementById("lblScore").value);
     document.getElementById("loser100Dialog").innerText = "You are better than " + document.getElementById("lblScore").value + " points!";
   }
-  $(`#${data}Dialog`).dialog();
+  // $(`#${data}Dialog`).dialog();
+  $(`#${data}Dialog`).dialog({
+    autoOpen: true,
+        maxWidth:700,
+        maxHeight: 400,
+        width: 600,
+        height: 250,
+        modal: true,
+      });
   $("div.alert")
     .mouseover(function () {
       over = false;

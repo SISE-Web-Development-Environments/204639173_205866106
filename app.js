@@ -121,12 +121,6 @@ function Start() {
 					monsters[monster_remain].j = j;
 					monsters[monster_remain].fiftee = false;
 				}
-
-
-				if(randomCandy==monster_remain){
-
-				}
-
 			}
 			else if (randomNum <= (1.0 * food_remain * 0.1) / cnt) {
 				food_remain--;
