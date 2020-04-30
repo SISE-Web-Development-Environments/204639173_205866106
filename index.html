@@ -248,129 +248,131 @@
 		</section>
 
 		<section id="gameSection">
-
 			<div style="float: left; display: flex; justify-content: center;">
 				<div>
-					<div id="score">
-						<label for="lblScore">SCORE:</label>
-						<input id="lblScore" type="text" />
-					</div>
-					<div id="username">
-						<label for="lblUsername">Player:</label>
-						<input id="lblUsername" type="text"/>
-					</div>
-					<div id="time">
-						<label for="lblTime">TIME:</label>
-						<input id="lblTime" type="text" />
-					</div>
-					<div id="life">
-						<label for="lblLife">Life:</label>
-						<input id="lblLife" type="text" value="5"></input>
-					</div>
+					<table style="  font-weight: bold;  font-size: 20px; ">
+						<tr>
+							<td width="10"><label for="lblUsername">Player:</label></td>
+							<td width="50">
+								<div id="lblUsername" type="text"></div>
+							</td>
+						</tr>
+						<tr>
+							<td width="10"><img src="score.png" width="40" height="40"></img></td>
+							<td width="50">
+								<div id="lblScore" type="text"></div>
+							</td>
+						</tr>
+						<tr>
+							<td width="10"><img src="time.png" width="47" height="40"></img></td>
+							<td width="50">
+								<div id="lblTime" type="text"></div>
+							</td>
+						</tr>
+						<tr>
+							<td width="10"><img src="life.png" width="40" height="40"></img></td>
+							<td width="50">
+								<div id="lblLife" type="text" value="5"></div>
+							</td>
+						</tr>
+
+						<tr>
+
+							<div>
+								<table style="  font-weight: bold;  font-size: 20px;">
+									<tr>
+										<td>
+											<img src="arrowUpSetting.jpg" width="47" height="40"></img>
+										</td>
+										<td>
+											<div id="buttonUpDiv"></div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<img src="arrowDownSetting.jpg" width="47" height="40"></img>
+										</td>
+										<td>
+											<div id="buttonDownDiv"></div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<img src="arrowRightSetting.png" width="47" height="40"></img>
+										</td>
+										<td>
+											<div id="buttonRightDiv"></div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<img src="arrowLeftSetting.png" width="47" height="40"></img>
+										</td>
+										<td>
+											<div id="buttonLeftDiv"></div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div>UP: </div>
+										</td>
+										<td>
+											<div id="numberOfBallsDiv"></div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div>UP: </div>
+										</td>
+										<td>
+											<div id="numberOfMonsterDiv"></div>
+										</td>
+									</tr>
+								</table>
+								<table style="  font-weight: bold;  font-size: 20px;">
+									<tr>
+										<td>
+											<div>5 point: </div>
+										</td>
+										<td>
+											<div class="colorChoose" id="color5pointDiv"></div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div>15 point: </div>
+										</td>
+										<td>
+											<div class="colorChoose" id="color15pointDiv"></div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div>25 point: </div>
+										</td>
+										<td>
+											<div class="colorChoose" id="color25pointDiv">
+										</td>
+									</tr>
+
+								</table>
+							</div>
+						</tr>
+					</table>
 				</div>
+				<button class="button" id="restartGame" type="button" onclick="restartGame()" style=" float: right; ">Restart
+					game</button>
 				<div id="game">
-					<canvas id="canvas" height="700" width="800" style="border:1px solid"></canvas>
+					<canvas id="canvas" height="700" width="900" style="background-color: rgb(14, 7, 14);"></canvas>
 					<div data="winner" id="winnerDialog" class="alert">WINNER!</div>
 					<div data="loser" id="loserDialog" class="alert">LOSER!</div>
 					<div data="loser100" id="loser100Dialog" class="alert"></div>
-					<button class="button" id="restartGame" type="button" onclick="restartGame()">Restart game</button>
 				</div>
 
-				<div id="settingToShow">
-					<table>
-						<tr>
-							<td>
-								<div>UP: </div>
-							</td>
-							<td>
-								<div id="buttonUpDiv"></div>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div>UP: </div>
-							</td>
-							<td>
-								<div id="buttonDownDiv"></div>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div>UP: </div>
-							</td>
-							<td>
-								<div id="buttonRightDiv"></div>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div>UP: </div>
-							</td>
-							<td>
-								<div id="buttonLeftDiv"></div>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div>UP: </div>
-							</td>
-							<td>
-								<div id="numberOfBallsDiv"></div>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div>UP: </div>
-							</td>
-							<td>
-								<div id="numberOfMonsterDiv"></div>
-							</td>
-						</tr>
-					</table>
-					<table>
-						<tr>
-							<td>
-								<div>5 point: </div>
-							</td>
-							<td>
-								<div class="colorChoose" id="color5pointDiv"></div>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div>15 point: </div>
-							</td>
-							<td>
-								<div class="colorChoose" id="color15pointDiv"></div>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div>25 point: </div>
-							</td>
-							<td>
-								<div class="colorChoose" id="color25pointDiv">
-							</td>
-						</tr>
 
-						<!-- <label style="display: flex;">5 point:
-							<div class="colorChoose" id="color5pointDiv"></div>
-						</label>
-						<br> -->
-						<!-- <label style="display: flex;">15 point:
-							<div class="colorChoose" id="color15pointDiv"></div>
-						</label>
-						<label style="display: flex;">25 point:
-							<div class="colorChoose" id="color25pointDiv">
-						</label> -->
-					</table>
 
-				</div>
 			</div>
-
-	</div>
-
-	</section>
+		</section>
 
 	</div>
 
