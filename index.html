@@ -49,7 +49,11 @@
 		 * Removes the activated class from activated navbar and section.
 		 * @type {HTMLCollectionOf<Element>}
 		 */
+		
 		const activatedSection = document.getElementsByClassName("activeSection");
+		if(activatedSection[0].id=="gameSection"){
+			sound.stop();
+		}
 		activatedSection[0].classList.remove("activeSection");
 
 	}
@@ -102,7 +106,6 @@
 
 	<div id="main">
 		<section id="welcomeSection">
-			<img id="backround-img" src="background.jpg" width=100% height="400">
 			<button class="button" onclick="moveTo('login')">Login
 			</button>
 			<button class="button" onclick="moveTo('register')">

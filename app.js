@@ -8,6 +8,7 @@ var start_time;
 var time_elapsed;
 var interval;
 var intervalMonster;
+var soundInterval;
 var setting;
 var empryCell = 0;
 var food_remain;
@@ -22,12 +23,16 @@ var keyLeft;
 var keyRight;
 var monsterWithCandy;
 var isExtraTime;
+var sound;
 $(document).ready(function () {
 	context = canvas.getContext("2d");
 	life = 5;
+	sound = new sound("music.wav");
 });
 
 function Start() {
+
+	// sound.play();
 	document.getElementById("lblUsername").innerText = username;
 	setting = JSON.parse(sessionStorage.getItem("setting"));
 	showSetting();
@@ -145,7 +150,7 @@ function Start() {
 				// 	board[i][j] = 50;
 				// }
 
-			}else {
+			} else {
 
 				board[i][j] = 0;//empty place;
 				Cell.push(i);
@@ -443,6 +448,7 @@ function UpdatePosition() {
 	}
 	if (!isMonsterCell(board[shape.i][shape.j]) && isPositionChange) {
 		if (--life == 0) {
+			sound.stop();
 			openDialog(document.getElementById("loserDialog"));
 			window.clearInterval(interval);
 			window.clearInterval(intervalMonster);
@@ -504,6 +510,7 @@ function UpdatePosition() {
 
 	if (numOfBalls == 0 && time_elapsed >= 0) {
 		Draw();
+		sound.stop();
 		openDialog(document.getElementById("winnerDialog"));
 		window.clearInterval(interval);
 		window.clearInterval(intervalMonster);
@@ -515,6 +522,7 @@ function UpdatePosition() {
 		} else {
 			openDialog(document.getElementById("winnerDialog"));
 		}
+		sound.stop();
 		window.clearInterval(interval);
 		window.clearInterval(intervalMonster);
 	}
@@ -582,6 +590,7 @@ function updateMonsterPosition() {
 		if (cellNumber == 2 && !monsters[i].fiftee) {
 			if (--life == 0) {
 				openDialog(document.getElementById("loserDialog"));
+				sound.stop();
 				window.clearInterval(interval);
 				window.clearInterval(intervalMonster);
 			}
@@ -696,10 +705,11 @@ function isMonsterCell(cell) {
 }
 
 function restartGame() {
+	sound.stop();
 	window.clearInterval(interval);
 	window.clearInterval(intervalMonster);
 	document.getElementById("lblLife").innerText = 5;
-	shape.angle="right";
+	shape.angle = "right";
 	Start();
 }
 
@@ -764,18 +774,33 @@ function updateBoard() {
 
 		}
 	}
-	while(pacman_remain>0){
-		let randomX = Math.floor(Math.random()*23) ;
-		let randomY = Math.floor(Math.random()*31);
+	while (pacman_remain > 0) {
+		let randomX = Math.floor(Math.random() * 23);
+		let randomY = Math.floor(Math.random() * 31);
 		if (board[randomX][randomY] == 0) {
 			board[randomX][randomY] = 2;
 			shape.i = randomX;
 			shape.j = randomY;
 			pacman_remain--;
-			shape.angle="right";
+			shape.angle = "right";
 		}
 	}
 
-	
-	}
 
+}
+
+function sound(src) {
+	this.sound = document.createElement("audio");
+	this.sound.src = src;
+	this.sound.setAttribute("preload", "auto");
+	this.sound.setAttribute("controls", "none");
+	this.sound.setAttribute("loop", true);
+	this.sound.style.display = "none";
+	document.body.appendChild(this.sound);
+	this.play = function(){
+	  this.sound.play();
+	}
+	this.stop = function(){
+	  this.sound.pause();
+	}
+  }
