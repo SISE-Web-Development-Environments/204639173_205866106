@@ -80,7 +80,7 @@
 </script>
 
 <body>
-	<div id="navbar">
+	<div id="navbar" >
 		<img src="./logo.png" id="logo" href="#" data-option="welcome" onclick="navClicked(this)"/>
 		<ul>
 		<a class="PictureNav" href="#" data-option="welcome" onclick="navClicked(this)">Welcome</a>
@@ -125,7 +125,7 @@
 
 				</br>
 				<label for="password"><b>Password</b> </label><br>
-				<input id="passwordField" name="passwordField" type="password"placeholder="Password"></input>
+				<input id="passwordField" name="passwordField" type="password"placeholder="Password" minlength=6></input>
 				<br>
 
 
@@ -255,7 +255,7 @@
 
 		<section id="gameSection">
 			<div style="float: left; display: flex; justify-content: center;">
-				<div>
+				<div style="left: 10%; position: fixed; top: 20%;">
 					<table style="  font-weight: bold;  font-size: 20px; ">
 						<tr>
 							<td width="10"><label for="lblUsername">Player:</label></td>
@@ -281,11 +281,10 @@
 								<div id="lblLife" type="text" value="5"></div>
 							</td>
 						</tr>
-
-						<tr>
-
-							<div>
-								<table style="  font-weight: bold;  font-size: 20px;">
+						<tr height="40"></tr>
+						<tr >
+							<div >
+								<table style="  font-weight: bold;  font-size: 20px; ">
 									<tr>
 										<td>
 											<img src="arrowUpSetting.jpg" width="47" height="40"></img>
@@ -366,7 +365,9 @@
 						</tr>
 					</table>
 				</div>
-				<button class="button" id="restartGame" type="button" onclick="restartGame()" style=" float: right; ">Restart
+				<button class="button" id="restartGame" type="button" onclick="restartGame()" style=" position: fixed;
+				right: 5%;
+				bottom: 10%; ">Restart
 					game</button>
 				<div id="game">
 					<canvas id="canvas" height="700" width="900" style="background-color: rgb(14, 7, 14);"></canvas>
@@ -381,8 +382,8 @@
 		</section>
 
 	</div>
-		
-	<footer align="center" id=footer>
+<!-- 		
+	<footer align="center" id=footer  >
 		<br>
 		<a>This web site conatin the classic game of Pacman</a>
 		<a> | The web site was created for the Web Development Enviroments     |     For more details: 050-9801189</a>
@@ -391,7 +392,7 @@
 		<a> | Shiran:</a>
 		<a href="https://www.linkedin.com/in/shiran-golzar-4762b210a/" class="fa fa-linkedin"></a>
 	
-	</footer>
+	</footer> -->
 
 </body>
 

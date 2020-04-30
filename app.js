@@ -36,8 +36,32 @@ function Start() {
 	keyUp = setting.up;
 	keyRight = setting.right;
 	keyLeft = setting.left;
-
-	
+	board = [
+		[4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+		[4, 1, 1, 1, 4, 1, 1, 1, 1, 1, 4, 1, 1, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 1, 4],
+		[4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 4, 4, 4, 4, 1, 4, 1, 4, 1, 4, 4, 4, 4, 1, 4],
+		[4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 1, 1, 1, 1, 4, 1, 4, 1, 4, 1, 1, 1, 1, 1, 1, 4],
+		[4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 1, 1, 4, 1, 4, 4, 4, 4, 4, 1, 4, 1, 4, 1, 4, 1, 4, 4, 4, 1, 4, 4],
+		[4, 1, 4, 1, 1, 1, 1, 1, 4, 1, 4, 1, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 4, 1, 4, 1, 1, 1, 1, 1, 1, 4],
+		[4, 1, 4, 1, 4, 1, 4, 4, 4, 1, 4, 4, 4, 4, 4, 4, 4, 1, 4, 4, 4, 1, 4, 1, 4, 1, 4, 1, 4, 4, 1, 4],
+		[4, 1, 4, 1, 4, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 1, 1, 1, 4, 1, 1, 1, 4, 1, 4, 1, 4, 4, 1, 4],
+		[4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 4, 4, 1, 4, 1, 4, 4, 4, 1, 4, 1, 4, 1, 1, 1, 1, 1, 4, 1, 1, 4],
+		[4, 1, 4, 1, 1, 1, 4, 1, 4, 1, 4, 1, 1, 1, 4, 1, 1, 1, 4, 1, 4, 1, 4, 1, 4, 4, 4, 1, 4, 1, 4, 4],
+		[4, 1, 1, 1, 4, 1, 1, 1, 4, 1, 4, 1, 4, 4, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 1, 1, 4, 1, 4, 1, 1, 4],
+		[4, 4, 4, 1, 4, 1, 4, 4, 4, 1, 4, 1, 1, 1, 4, 1, 4, 1, 4, 1, 1, 1, 4, 1, 4, 1, 4, 1, 4, 4, 1, 4],
+		[4, 1, 1, 1, 4, 1, 4, 1, 1, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 1, 4],
+		[4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 1, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 4],
+		[4, 1, 4, 1, 4, 1, 4, 1, 4, 4, 4, 1, 4, 1, 4, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 4, 1, 4, 1, 1, 4],
+		[4, 1, 4, 1, 1, 1, 1, 1, 1, 1, 4, 1, 4, 1, 4, 4, 4, 1, 4, 4, 4, 4, 1, 4, 4, 4, 4, 1, 4, 4, 1, 4],
+		[4, 1, 4, 4, 4, 4, 4, 4, 4, 1, 4, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 1, 1, 4, 1, 1, 4],
+		[4, 1, 1, 1, 1, 1, 1, 1, 4, 1, 4, 1, 4, 4, 4, 4, 1, 4, 1, 4, 4, 4, 4, 4, 1, 4, 1, 4, 4, 1, 4, 4],
+		[4, 1, 4, 4, 4, 1, 4, 1, 4, 1, 4, 1, 1, 1, 1, 4, 1, 4, 1, 4, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 4],
+		[4, 1, 1, 1, 1, 1, 4, 1, 4, 1, 4, 1, 4, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 4, 4, 1, 4, 1, 4],
+		[4, 1, 4, 4, 4, 1, 4, 1, 1, 1, 4, 1, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 1, 1, 4, 1, 4, 1, 4],
+		[4, 1, 4, 1, 1, 1, 4, 1, 4, 1, 4, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4, 4, 4, 1, 4, 1, 4, 1, 4],
+		[4, 1, 1, 1, 4, 1, 1, 1, 4, 1, 1, 1, 1, 4, 1, 1, 1, 4, 1, 1, 1, 4, 1, 1, 1, 1, 1, 4, 1, 1, 1, 4],
+		[4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+	];
 	Cell = new Array();
 	score = 0;
 	life = 5;
@@ -66,7 +90,6 @@ function Start() {
 	let isPacmanDrow = false;
 	var index = 0;
 	start_time = new Date();
-	// createWall();
 	for (var i = 0; i < 24 && cnt > 0; i++) {
 		for (var j = 0; j < 32 && cnt > 0; j++) {
 			if (board[i][j] == 4) {
@@ -122,14 +145,12 @@ function Start() {
 				// 	board[i][j] = 50;
 				// }
 
-			} else {
+			}else {
 
 				board[i][j] = 0;//empty place;
 				Cell.push(i);
 				Cell.push(j);
 			}
-
-
 			index++;
 		}
 		cnt--;
@@ -427,6 +448,7 @@ function UpdatePosition() {
 			window.clearInterval(intervalMonster);
 
 		}
+		updateBoard();
 		document.getElementById("lblLife").innerText = life;
 		score = score - 10;
 		document.getElementById("lblScore").innerText = score;
@@ -500,6 +522,7 @@ function UpdatePosition() {
 		Draw();
 	}
 }
+
 function updateMonsterPosition() {
 	var x;
 	for (var i = 0; i < monsterWithCandy; i++) {
@@ -562,6 +585,7 @@ function updateMonsterPosition() {
 				window.clearInterval(interval);
 				window.clearInterval(intervalMonster);
 			}
+			updateBoard();
 			document.getElementById("lblLife").innerText = life;
 			score = score - 10;
 			document.getElementById("lblScore").innerText = score;
@@ -666,6 +690,7 @@ function keepGoing(x, monsters, i) {
 	}
 
 }
+
 function isMonsterCell(cell) {
 	return cell != 6 && cell != 16 && cell != 26 && cell != 1 && cell != 51;
 }
@@ -674,6 +699,7 @@ function restartGame() {
 	window.clearInterval(interval);
 	window.clearInterval(intervalMonster);
 	document.getElementById("lblLife").innerText = 5;
+	shape.angle="right";
 	Start();
 }
 
@@ -696,5 +722,60 @@ function showSetting() {
 	$("#color5pointDiv").css("background-color", setting.fivePoint);
 	$("#color15pointDiv").css("background-color", setting.fifteenPoint);
 	$("#color25pointDiv").css("background-color", setting.twentyFivePoint);
-
 }
+
+function updateBoard() {
+	monster_remain = parseInt(setting.monster);
+	pacman_remain = 1;
+	food_remain = parseInt(setting.numOfBall);
+	let indexMonster = 0;
+	for (let i = 0; i < board.length; i++) {
+		for (let j = 0; j < board[0].length; j++) {
+
+			if (board[i][j] == 1 || board[i][j] == 2) {
+				board[i][j] = 0;
+			}
+			if (((i == 1 && j == 1) || (i == 1 && j == 30) || (i == 22 && j == 1) || (i == 22 && j == 30)) && monster_remain > 0) {
+				if (monsters[indexMonster].fiftee) {
+					indexMonster++;
+				}
+				monsters[indexMonster].i = i;
+				monsters[indexMonster].j = j;
+				board[i][j] = 1;
+				indexMonster++;
+				monster_remain--;
+			}
+			else if (board[i][j] == 6) {
+				board[i][j] = 5;
+
+			} else if (board[i][j] == 16) {
+				board[i][j] = 15;
+
+			} else if (board[i][j] == 26) {
+				board[i][j] = 15;
+
+			} else if (board[i][j] == 51) {//for candy
+				board[i][j] = 50;
+			} else if (board[i][j] == 101) {//for candy
+				board[i][j] = 100;
+			} else if (board[i][j] == 201) {//for candy
+				board[i][j] = 200;
+			}
+
+		}
+	}
+	while(pacman_remain>0){
+		let randomX = Math.floor(Math.random()*23) ;
+		let randomY = Math.floor(Math.random()*31);
+		if (board[randomX][randomY] == 0) {
+			board[randomX][randomY] = 2;
+			shape.i = randomX;
+			shape.j = randomY;
+			pacman_remain--;
+			shape.angle="right";
+		}
+	}
+
+	
+	}
+
