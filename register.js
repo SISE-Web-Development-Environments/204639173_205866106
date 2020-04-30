@@ -16,7 +16,7 @@ function submitRegister() {
                 required: true
             },
             passwordField: {
-                pattern: '^(?=.*\\d)(?=.*[a-zA-Z]).{8,200}$',
+                pattern: '^(?=.*\\d)(?=.*[a-zA-Z]).{6,200}$',
                 required: true,
                 minlength: 6
             },

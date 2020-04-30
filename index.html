@@ -84,28 +84,30 @@
 </script>
 
 <body>
-	<div id="navbar" >
-		<img src="./logo.png" id="logo" href="#" data-option="welcome" onclick="navClicked(this)"/>
+	<div id="navbar">
+		<img src="./logo.png" id="logo" href="#" data-option="welcome" onclick="navClicked(this)" />
 		<ul>
-		<a class="PictureNav" href="#" data-option="welcome" onclick="navClicked(this)">Welcome</a>
-		<a class="Picture2Nav" href="#" data-option="register" onclick="navClicked(this)">Register</a>
-		<a class="Picture2Nav" href="#" data-option="login" onclick="navClicked(this)">Login</a>
-		<a class="trigger" href="#" data="about" onclick="openDialog(this)">About</a>
+			<a class="PictureNav" href="#" data-option="welcome" onclick="navClicked(this)">Welcome</a>
+			<a class="Picture2Nav" href="#" data-option="register" onclick="navClicked(this)">Register</a>
+			<a class="Picture2Nav" href="#" data-option="login" onclick="navClicked(this)">Login</a>
+			<a class="trigger" href="#" data="about" onclick="openDialog(this)">About</a>
 		</ul>
 
 		<!-- <a href="https://www.solodev.com" class="btn btn-info btn-lg cta-open">External Link</a>  -->
 
 	</div>
-	<div id="aboutDialog" class="alert" width="500px" height="300px"> 
+	<div id="aboutDialog" class="alert" width="500px" height="300px">
 		Welcome to our Pacman project in Web Development enviroment course.
-		In the assignment we had a difficulty in the design but we enjoy it at the end.
+		In the assignment we had a difficulty in the design but we enjoy it at the end.<br>
+		We used in Validation jQuery plugin.
 		<br>Submitting:Hen Debi(204639173), Shiran Golzar(205866106)
 		Hen:<a href="https://www.linkedin.com/in/hen-debi-0547ba1a2/" class="fa fa-linkedin"></a>
 		Shiran:<a href="https://www.linkedin.com/in/shiran-golzar-4762b210a/" class="fa fa-linkedin"></a>
 	</div>
 
-	<div id="main">
-		<section id="welcomeSection">
+	<div id="main" class="main">
+		<section id="welcomeSection" class="activeSection">
+			<img id="backround-img" src="background.jpg" width=100% height="400">
 			<button class="button" onclick="moveTo('login')">Login
 			</button>
 			<button class="button" onclick="moveTo('register')">
@@ -116,7 +118,7 @@
 			<br>
 			<h1>User Registeration</h1>
 			<form id="registerForm" role="form" method="post" action="">
-				
+
 				<label for="name"><b>Your name:</b> </label><br>
 				<input id="nameField" name="nameField" type="text" placeholder="Name"></input>
 				<br>
@@ -128,18 +130,18 @@
 
 				</br>
 				<label for="password"><b>Password</b> </label><br>
-				<input id="passwordField" name="passwordField" type="password"placeholder="Password" minlength=6></input>
+				<input id="passwordField" name="passwordField" type="password" placeholder="Password"></input>
 				<br>
 
 
 				</br>
 				<label for="email"><b>Email:</b> </label><br>
-				<input id="emailField" name="emailField"placeholder="Email"></input>
+				<input id="emailField" name="emailField" placeholder="Email"></input>
 				<br>
 
 				</br>
 				<label for="Birthday"><b>Birthday</b> </label><br>
-				<input id="birthdayField" name="birthdayField" type="date"placeholder="Date"></input>
+				<input id="birthdayField" name="birthdayField" type="date" placeholder="Date"></input>
 				<br>
 
 				</br>
@@ -169,7 +171,7 @@
 				</div>
 			</div>
 		</section>
-		<section id="settingSection" align=center class="activeSection">
+		<section id="settingSection" align=center >
 			<h1>Setting</h1>
 			<form id="settingForm" role="form" method="post" action="">
 				<table align=center>
@@ -255,11 +257,68 @@
 
 			</form>
 		</section>
-
 		<section id="gameSection">
 			<div style="float: left; display: flex; justify-content: center;">
-				<div style="left: 10%; position: fixed; top: 20%;">
-					<table style="  font-weight: bold;  font-size: 20px; ">
+				<div>
+					<div id="score">
+						<label for="lblScore">SCORE:</label>
+						<input id="lblScore" type="text" />
+					</div>
+					<div id="username">
+						<label for="lblUsername">Player:</label>
+						<input id="lblUsername" type="text" />
+					</div>
+					<div id="time">
+						<label for="lblTime">TIME:</label>
+						<input id="lblTime" type="text" />
+					</div>
+					<div id="life">
+						<label for="lblLife">Life:</label>
+						<input id="lblLife" type="text" value="5"></input>
+					</div>
+				</div>
+				<div id="game">
+					<canvas id="canvas" height="700" width="800" style="border:1px solid"></canvas>
+					<div data="winner" id="winnerDialog" class="alert">WINNER!</div>
+					<div data="loser" id="loserDialog" class="alert">LOSER!</div>
+					<div data="loser100" id="loser100Dialog" class="alert"></div>
+					<button class="button" id="restartGame" type="button" onclick="restartGame()">Restart game</button>
+				</div>
+
+				<div id="settingToShow">
+					<table>
+						<tr>
+							<td>
+								<div>UP: </div>
+							</td>
+							<td>
+								<div id="buttonUpDiv"></div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div>UP: </div>
+							</td>
+							<td>
+								<div id="buttonDownDiv"></div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div>UP: </div>
+							</td>
+							<td>
+								<div id="buttonRightDiv"></div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div>UP: </div>
+							</td>
+							<td>
+								<div id="buttonLeftDiv"></div>
+							</td>
+						</tr>
 						<tr>
 							<td width="10"><label for="lblUsername">Player:</label></td>
 							<td width="50">
@@ -379,23 +438,24 @@
 					<div data="loser100" id="loser100Dialog" class="alert"></div>
 				</div>
 
-
-
-			</div>
 		</section>
 
 	</div>
-<!-- 		
-	<footer align="center" id=footer  >
+	<div class="push"></div>
+	<footer id="footer">
 		<br>
-		<a>This web site conatin the classic game of Pacman</a>
-		<a> | The web site was created for the Web Development Enviroments     |     For more details: 050-9801189</a>
-		<a> | Hen:</a>
+		<div>This web site conatin the classic game of Pacman | The website was created for the Web Development
+			Enviroments course | For more details: 050-9801189</div>
+		<!-- <a>This web site conatin the classic game of Pacman</a>
+		<a> | The web site was created for the Web Development Enviroments     |     For more details: 050-9801189</a> -->
+		<!-- <a> | Hen:</a>
 		<a href="https://www.linkedin.com/in/hen-debi-0547ba1a2/" class="fa fa-linkedin"></a>|
 		<a> | Shiran:</a>
-		<a href="https://www.linkedin.com/in/shiran-golzar-4762b210a/" class="fa fa-linkedin"></a>
-	
-	</footer> -->
+		<a href="https://www.linkedin.com/in/shiran-golzar-4762b210a/" class="fa fa-linkedin"></a> -->
+	</footer>
+	</div>
+
+
 
 </body>
 
