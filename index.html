@@ -21,12 +21,9 @@
 	<link rel="stylesheet" type="text/css" href="main.css" />
 	<link href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" rel="stylesheet" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-	<script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
-	<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
-	<!-- fonttttt -->
-	<link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
-
+	<script src="https://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+	<script src="https://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+	<script src="https://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
 
 	<!-- <link rel="stylesheet" type="text/css" href="modal.css" /> -->
 </head>
@@ -69,10 +66,8 @@
 
 
 		if (clickedName != "welcome") {
-			console.log($("#body"));
 			$("body").css("background-image", "url('background3.jpg')");
 		} else {
-			console.log($("#body"));
 			$("body").css("background-image", "url('background2.jpg')")
 		}
 		const newActivatedSection = document.getElementById("main").querySelector(`#${clickedName}Section`);
