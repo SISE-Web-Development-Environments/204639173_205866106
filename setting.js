@@ -29,11 +29,11 @@ function randomSetting() {
     document.getElementById("monsterNumberField").value = monstes;
     $("#monsterNumbeSpan").text(document.getElementById("monsterNumberField").value);
     document.getElementById("ballsColorfor5PointsField").value = getRandomColor();
-    $("#ballsColorfor5PointsField").css("background-color", document.getElementById("ballsColorfor5PointsField").value);
+    // $("#ballsColorfor5PointsField").css("background-color", document.getElementById("ballsColorfor5PointsField").value);
     document.getElementById("ballsColorfor15PointsField").value = getRandomColor();
-    $("#ballsColorfor15PointsField").css("background-color", document.getElementById("ballsColorfor15PointsField").value);
+    // $("#ballsColorfor15PointsField").css("background-color", document.getElementById("ballsColorfor15PointsField").value);
     document.getElementById("ballsColorfor25PointsField").value = getRandomColor();
-    $("#ballsColorfor25PointsField").css("background-color", document.getElementById("ballsColorfor25PointsField").value);
+    // $("#ballsColorfor25PointsField").css("background-color", document.getElementById("ballsColorfor25PointsField").value);
     upKey = 38;
     $("#upKeyField").attr("placeholder", "ArrowUp");
     downKey = 40;
