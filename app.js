@@ -334,8 +334,6 @@ function Draw() {
 						context.fillStyle = "black"; //color
 						context.fill();
 						break;
-						break;
-
 
 				}
 

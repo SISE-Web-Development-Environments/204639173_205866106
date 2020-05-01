@@ -103,12 +103,13 @@
 		<!-- <a href="https://www.solodev.com" class="btn btn-info btn-lg cta-open">External Link</a>  -->
 
 	</div>
-	<div id="aboutDialog" class="alert" width="500px" height="300px">
-		Welcome to our Pacman project in Web Development enviroment course.
-		In the assignment we had a difficulty in the design but we enjoy it at the end.
-		<br>Submitting:Hen Debi(204639173), Shiran Golzar(205866106)
-		Hen:<a href="https://www.linkedin.com/in/hen-debi-0547ba1a2/" class="fa fa-linkedin"></a>
-		Shiran:<a href="https://www.linkedin.com/in/shiran-golzar-4762b210a/" class="fa fa-linkedin"></a>
+	<div id="aboutDialog" class="alert" width="600px" height="1000px" style="text-align: center;">
+		<label style="color: white;">
+			Welcome to our Pacman project in Web Development enviroment course.
+			In the assignment we had a difficulty in the design but we enjoy it at the end.
+			<br>Submitting:Hen Debi(204639173), Shiran Golzar(205866106)
+		</label>
+
 	</div>
 
 	<div id="main">
@@ -248,7 +249,7 @@
 				<label for="ballsNumber">Number of balls: </label><br>
 				<br>
 
-				<input id="ballsNumberField" class="input-range" type="range" value="60" min="60" max="90">
+				<input id="ballsNumberField" class="input-range" type="range" value="60" min="1" max="90">
 				<span id="ballsNumberSpan" class="range-value"> 60</span>
 				<br>
 				<br>
@@ -288,7 +289,7 @@
 							<label for="durationTime">Duration time:</label>
 						</td>
 						<td width=100>
-							<input id="durationTimeField" type="number" style="width: 5em" value="60" min="60"
+							<input id="durationTimeField" type="number" style="width: 5em" value="60" min="5"
 								name="durationTimeField"> </input>
 						</td>
 					</tr>
@@ -309,7 +310,7 @@
 
 		<section id="gameSection">
 			<div style="left: 10%; position: fixed; top: 15%;">
-				<table  style="font-size:80%">
+				<table style="font-size:80%">
 					<tr>
 						<td width="10">
 							<label for="lblUsername">Player:</label>
@@ -344,97 +345,103 @@
 			</div>
 			<div id="game">
 				<canvas id="canvas" height="700" width="900" style="background-color: rgb(14, 7, 14);"></canvas>
-				<div data="winner" id="winnerDialog" class="alert">WINNER!</div>
-				<div data="loser" id="loserDialog" class="alert">LOSER!</div>
-				<div data="loser100" id="loser100Dialog" class="alert"></div>
+				<div data="winner" id="winnerDialog" class="alert" style="text-align: center"><label
+						style="color: white;"><br><br>WINNER!</label></div>
+				<div data="loser" id="loserDialog" class="alert" style="text-align: center"><label
+						style="color: white;"><br><br><br>LOSER!</label></div>
+				<div data="loser100" id="loser100Dialog" class="alert" style="text-align: center">
+					<label id="loserWithScore" style="color: white;"><br><br>
+					</label>
+				</div>
+				<br><br>
 			</div>
 			<div style="left: 12%;top:40%;position: fixed;">
-						
-							<table style="font-weight: bold;  font-size: 20px; ">
-								<tr>
-									<td>
-										<img src="arrowUp.png" width="47" height="40"></img>
-									</td>
-									<td width="100">
-										<div id="buttonUpDiv"></div>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<img src="arrowDown.png" width="47" height="40"></img>
-									</td>
-									<td width="100"> 
-										<div id="buttonDownDiv"></div>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<img src="arrowRight.png" width="47" height="40"></img>
-									</td>
-									<td  width="100">
-										<div id="buttonRightDiv"></div>
-									</td>
-								</tr>
-								<tr>
-									<td >
-										<img src="arrowLeft.png" width="47" height="40"></img>
-									</td>
-									<td  width="100">
-										<div id="buttonLeftDiv"></div>
-									</td>
-								</tr>
-							</table>
-							<br><br>
-							<table style="font-weight: bold;  font-size: 20px;text-align: left; ">
-								<tr>
-									<td width="50px">
-										<div>Balls: </div>
-									</td>
-									<td width="50px">
-										<div id="numberOfBallsDiv"></div>
-									</td>
-								</tr>
-								<tr>
-									<td width="60">
-										<div>Monsters: </div>
-									</td>
-									<td>
-										<div id="numberOfMonsterDiv"></div>
-									</td>
-								</tr>
-							</table >
-							<br><br>
-							<table style="  font-weight: bold;  font-size: 20px;">
-								<tr>
-									<td>
-										<div class="colorChoose" id="color5pointDiv"></div>
-									</td>
-									<td>
-										<div>5 points </div>
-									</td>
 
-								</tr>
-								<tr>
-									<td>
-										<div class="colorChoose" id="color15pointDiv"></div>
-									</td>
-									<td>
-										<div>15 points </div>
-									</td>
-	
-								</tr>
-								<tr>
-									<td>
-										<div class="colorChoose" id="color25pointDiv">
-									</td>
-									<td>
-										<div>25 points </div>
-									</td>
+				<table style="font-weight: bold;  font-size: 20px; ">
+					<tr>
+						<td>
+							<img src="arrowUp.png" width="47" height="40"></img>
+						</td>
+						<td width="100">
+							<div id="buttonUpDiv"></div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="arrowDown.png" width="47" height="40"></img>
+						</td>
+						<td width="100">
+							<div id="buttonDownDiv"></div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="arrowRight.png" width="47" height="40"></img>
+						</td>
+						<td width="100">
+							<div id="buttonRightDiv"></div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="arrowLeft.png" width="47" height="40"></img>
+						</td>
+						<td width="100">
+							<div id="buttonLeftDiv"></div>
+						</td>
+					</tr>
+				</table>
+				<br><br>
+				<table style="font-weight: bold;  font-size: 20px;text-align: left; ">
+					<tr>
+						<td width="50px">
+							<div>Balls: </div>
+						</td>
+						<td width="50px">
+							<div id="numberOfBallsDiv"></div>
+						</td>
+					</tr>
+					<tr>
+						<td width="60">
+							<div>Monsters: </div>
+						</td>
+						<td>
+							<div id="numberOfMonsterDiv"></div>
+						</td>
+					</tr>
+				</table>
+				<br><br>
+				<table style="  font-weight: bold;  font-size: 20px;">
+					<tr>
+						<td>
+							<div class="colorChoose" id="color5pointDiv"></div>
+						</td>
+						<td>
+							<div>5 points </div>
+						</td>
 
-								</tr>
+					</tr>
+					<tr>
+						<td>
+							<div class="colorChoose" id="color15pointDiv"></div>
+						</td>
+						<td>
+							<div>15 points </div>
+						</td>
 
-							</table>
-						
+					</tr>
+					<tr>
+						<td>
+							<div class="colorChoose" id="color25pointDiv">
+						</td>
+						<td>
+							<div>25 points </div>
+						</td>
+
+					</tr>
+
+				</table>
+
 			</div>
 			<button class="button" id="restartGame" type="button" onclick="restartGame()" style=" position: fixed;
 				right: 5%;
@@ -444,22 +451,23 @@
 
 
 
-	</section>
+		</section>
 
 	</div>
-	<!-- 		
-	<footer align="center" id=footer  >
-		<br>
-		<a>This web site conatin the classic game of Pacman</a>
-		<a> | The web site was created for the Web Development Enviroments     |     For more details: 050-9801189</a>
-		<a> | Hen:</a>
-		<a href="https://www.linkedin.com/in/hen-debi-0547ba1a2/" class="fa fa-linkedin"></a>|
-		<a> | Shiran:</a>
-		<a href="https://www.linkedin.com/in/shiran-golzar-4762b210a/" class="fa fa-linkedin"></a>
-	
-	</footer> -->
+
+
 
 </body>
+<footer>
+	<br>
+	<a>Pacman Game</a>
+	<a> | The web site was created for the Web Development Enviroments course | For more details: 050-9801189</a>
+	<a> | Hen:</a>
+	<a href="https://www.linkedin.com/in/hen-debi-0547ba1a2/" class="fa fa-linkedin"></a>|
+	<a> | Shiran:</a>
+	<a href="https://www.linkedin.com/in/shiran-golzar-4762b210a/" class="fa fa-linkedin"></a>
+
+</footer>
 
 
 </html>

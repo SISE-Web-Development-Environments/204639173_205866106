@@ -3,11 +3,17 @@ body {
   color: white;
 
   min-width:1366px;
-  min-height: 100vh;
+  min-height: 768px;
+  margin: 0 0 100px;
+  /* bottom = footer height */
+  padding: 25px;
   
 
 }
-
+html {
+  position: relative;
+  min-height: 100%;
+}
 .menuPage{
 background-image: url("background3.jpg");
 }
@@ -23,8 +29,8 @@ section {
 .button {
   display: inline-block;
   border-radius: 4px;
-  background-color: #ffff00
-  ;    border: none;
+  background-color: #ffff00;
+  border: none;
   color: black;
   text-align: center;
   font-size: 28px;
@@ -35,6 +41,12 @@ section {
   margin: 5px;
   outline: 100;
 }
+
+.ui-dialog, .ui-dialog-content {
+  /* border:10px solid orange;   * change css properties to match your theme */
+  background-image: url("background3.jpg") !important;
+  color:white;
+  }
 
 
 .button span {
@@ -186,6 +198,7 @@ display: block;
 position: fixed;
 top:25%;
 left: 30%;
+margin-bottom: 50px;
 }
 /**linkedin*/
 .fa {
@@ -218,29 +231,21 @@ height: 100px;
 
 
 }
-/*footer*/
-#footer{
-text-align: center;
-background-color: #333;
-padding: 7px;
-width: 100%;
-bottom: 0;
-position: absolute;
-height: 5.5rem;            /* Footer height */
-
-} 
 
 
-#footer a {
-float: left;
-text-align: center;
-display: block;
-color: #f2f2f2;
-text-align: center;
-/* padding: 14px 16px; */
-text-decoration: none;
-font-size: 17px;
+footer {
+  text-align: center;
+  background-color: black;  font-size: 20px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+  overflow: hidden;
+  /* padding-top: 0; */
 }
+
+
 input{
   padding:10px;
 }
