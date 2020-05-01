@@ -9,8 +9,7 @@
     }
 var users;
 $( document ).ready(function() {
-
-      var users=new Array();
+      users=new Array();
       var user1=new User("p","p","babi","H@.com","");
       users.push(user1);
       if(localStorage.getItem("users"==null)){
@@ -19,6 +18,7 @@ $( document ).ready(function() {
       
  
 });
+
 function addUser(user){
     users=  JSON.parse(localStorage.getItem("users"));
     users.push(user);
