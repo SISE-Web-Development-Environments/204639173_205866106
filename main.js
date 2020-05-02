@@ -11,31 +11,40 @@
 
 
 var users;
+window.onload = function() {
 
-$( document ).ready(function() {
-    if (window.localStorage) {
-        users=new Array();
-        var user1=new User("p","p","babi","H@.com","");
+    (function()
+{
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem('firstLoad')  )
+    {
+      localStorage['firstLoad'] = true;
+    //   window.location.reload();
+      users=new Array();
+      window.localStorage.setItem("users",JSON.stringify(users))
+      var user1=new User("p","p","p","p@.com","");
       addUser(user1);
-        if(window.localStorage.getItem("users")==null){
-          window.localStorage.setItem("users",JSON.stringify(users));
-        }
-    
     }
+  }
+})();
+}
 
-      
- 
-});
+// $( document ).ready(function() {
+
+
+// });
 
 function addUser(user){
-    users=  JSON.parse(window.localStorage.getItem("users"));
+    users=  JSON.parse(localStorage.getItem("users"));
     users.push(user);
     window.localStorage.removeItem("users");
     window.localStorage.setItem("users",JSON.stringify(users));
+
 }
 function getUser(userName){ 
-       users=JSON.parse(window.localStorage.getItem("users"));
-       console.log(users);
+
+    users =JSON.parse(window.localStorage.getItem("users"));
         for(var i=0;i<users.length;i++){
             if(users[i].username==userName){
                 return users[i];

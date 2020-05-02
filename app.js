@@ -747,10 +747,6 @@ function restartGame() {
 
 function setUserName(userName) {
 	username = userName;
-	// document.getElementById("lblUsername").innerText = userName;
-
-
-
 }
 
 function showSetting() {

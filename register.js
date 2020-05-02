@@ -75,7 +75,6 @@ function creatrUser() {
     let email = document.getElementById("emailField").value;
     let birthday = document.getElementById("birthdayField").value;
     var user = new User(userName, password, name, email, birthday ) ;
-    console.log(user);
     addUser(user);
 }
 

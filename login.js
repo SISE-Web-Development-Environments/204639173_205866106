@@ -25,15 +25,21 @@ function login(){
     var pass=document.getElementById("password").value;
     var username = document.getElementById("username").value;
     var user=getUser(username);
-    if(user==null){
-        openDialog(document.getElementById("wrongUsernameDialog"));
-    }else{
-        if(user.password == pass){
-			setUserName(username);
-            moveTo("setting");
-
+    if ($('#loginForm').valid()) {
+        if(user==null){
+            openDialog(document.getElementById("wrongUsernameDialog"));
         }else{
-            openDialog(document.getElementById("wrongPasswordDialog"));
+            if(user.password == pass){
+                setUserName(username);
+                moveTo("setting");
+    
+            }else{
+                openDialog(document.getElementById("wrongPasswordDialog"));
+            }
         }
     }
+
+
+
+
 }
