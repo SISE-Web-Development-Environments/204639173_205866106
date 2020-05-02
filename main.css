@@ -43,7 +43,6 @@ section {
 }
 
 .ui-dialog, .ui-dialog-content {
-  /* border:10px solid orange;   * change css properties to match your theme */
   background-image: url("background3.jpg") !important;
   color:white;
   }
