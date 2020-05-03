@@ -1,69 +1,83 @@
 body {
-    background-image: url("background2.jpg");
-    color: white;
+  background-image: url("background2.jpg");
+  color: white;
 
-    min-width:1366px;
-    min-height: 100vh;
-    
+  min-width:1366px;
+  min-height: 768px;
+  margin: 0 0 100px;
+  /* bottom = footer height */
+  padding: 25px;
+  
 
 }
-
+html {
+  position: relative;
+  min-height: 100%;
+}
 .menuPage{
-  background-image: url("background3.jpg");
+background-image: url("background3.jpg");
 }
 section {
-    display: none;
-    text-align:center;
+  display: none;
+  text-align:center;
 }
 
 .activeSection {
-    display: block;
+  display: block;
 }
 /* login and register button */
 .button {
-    display: inline-block;
-    border-radius: 4px;
-    background-color: #ffff00
-    ;    border: none;
-    color: black;
-    text-align: center;
-    font-size: 28px;
-    padding: 20px;
-    width: 200px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
-    outline: 100;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #ffff00;
+  border: none;
+  color: black;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  outline: 100;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  font-weight: 500;
+
+}
+
+.ui-dialog, .ui-dialog-content {
+  background-image: url("background3.jpg") !important;
+  color:white;
   }
-  
-  
-  .button span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-  }
-  
-  .button span:after {
-    content: '\00bb';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-  }
-  .button:hover {
-    color: black;
-    box-shadow: 10px 10px 15px 10px whitesmoke;
-  }
-  .button:hover span {
-    padding-right: 25px;
-  }
-  
-  .button:hover span:after {
-    opacity: 1;
-    right: 0;
-  }
+
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.button:hover {
+  color: black;
+  box-shadow: 10px 10px 15px 10px whitesmoke;
+}
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
 
 /* NAVBAR */
 /* Style the navbar */
@@ -79,35 +93,13 @@ section {
     text-align: center;
   }
   
-  #navbar {
-    overflow: hidden;
-    background-color: rgb(3, 3, 53);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 9%;
-    opacity: 0.8;
-  }
-  
-  #navbar a {
-    float: left;
-    display: block;
-    color:  white;
-    text-align: center;
-    padding: 14px 20px;
-    text-decoration: none;
-    font-size: 24px;
-    font-weight: 600;
-    font-style: italic;
-
-  }
-  
+/*   
   #navbar a:hover {
     background-color: #ddd;
     color: black;
   }
-  
-  #navbar a.active {
+   */
+  /* #navbar a.active {
     background-color: #4CAF50;
     color: white;
   }
@@ -115,8 +107,8 @@ section {
   .content {
     padding: 16px;
   }
-  
-  .sticky {
+   */
+  /* .sticky {
     position: fixed;
     top: 0;
     width: 100%;
@@ -124,85 +116,151 @@ section {
   
   .sticky + .content {
     padding-top: 60px;
-  }
+  } */
 /* modal  */
-div#speedbump {
+/* div#speedbump {
   display: none;
   z-index: 9999;
+  margin: 0;
+  font-size: 28px;
+  font-family: Arial, Helvetica, sans-serif;
+} */ 
+
+.header {
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: center;
+}
+
+#navbar {
+  overflow: hidden;
+  background-color: rgb(3, 3, 53);
   position: fixed;
   top: 0;
   width: 100%;
-  background: #eeeeee;
+  height: 9%;
+  opacity: 0.8;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color:  white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-size: 40px;
+  /* font-weight: 600; */
+font-family: Comic Sans MS, Comic Sans, cursive;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+/* modal  */
+div#speedbump {
+display: none;
+z-index: 9999;
+position: fixed;
+top: 0;
+width: 100%;
+background: #eeeeee;
 }
 #speedbump h4.modal-title {
-  text-align: center;
-  text-transform: uppercase;
-  color: #004795;
-  font-size:2.5em;	
+text-align: center;
+text-transform: uppercase;
+color: #004795;
+font-size:2.5em;	
 }
 .modal-body p {
-  text-align:center;
-  font-size: 1em;
+text-align:center;
+font-size: 1em;
 }
 button.btn-modal:hover {
-  cursor: pointer;
+cursor: pointer;
 }
 button.btn-modal.btn-continue {
-  background-color: #8bc63e;
-  border: 0px;
-  margin: 1% 0;
+background-color: #8bc63e;
+border: 0px;
+margin: 1% 0;
 }
 button.btn-modal.btn-close {
-  background-color: inherit;
-  border: 1px solid #030000;
-  color: #030000;
-  font-weight: 400;
+background-color: inherit;
+border: 1px solid #030000;
+color: #030000;
+font-weight: 400;
 }
 .modal-header .close {
-  font-size: 3.5em;
+font-size: 3.5em;
 }
 
 #aboutDialog{
-  display: none;
+display: none;
 }
 .alert{
-  display: none;
+display: none;
 }
+.ui-dialog .ui-dialog-content { background: yellow; }
+
 
 .colorChoose{
-  width: 20px;
-  height:20px;
-  border-radius: 50%
+width: 20px;
+height:20px;
+border-radius: 50%
 }
 canvas {
-  padding-left: 0;
-  padding-right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  /* top:40%; */
-  display: block;
+padding-left: 0;
+padding-right: 0;
+margin-left: auto;
+margin-right: auto;
+/* top:40%; */
+display: block;
+position: fixed;
+top:25%;
+left: 30%;
+margin-bottom: 50px;
 }
 /**linkedin*/
 .fa {
-  padding: 15px;
-  font-size: 30px;
-  width: 20spx;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px 5px;
-  border-radius: 50%;
-  padding-top: 8.5px;
+padding: 15px;
+font-size: 30px;
+width: 20spx;
+text-align: center;
+text-decoration: none;
+margin: 5px 5px;
+border-radius: 50%;
+padding-top: 8.5px;
 
 
 }
 
 .fa:hover {
-  opacity: 0.7;
+opacity: 0.7;
 }
 
 .fa-linkedin {
-  background: #007bb5;
-  color: white;
+background: #007bb5;
+color: white;
 
 
 }
@@ -213,47 +271,51 @@ height: 100px;
 
 
 }
-/*footer*/
- #footer{
+
+
+footer {
   text-align: center;
-  background-color: #333;
-  padding: 7px;
-  width: 100%;
+  background-color: black;  font-size: 20px;
+  position: absolute;
+  left: 0;
   bottom: 0;
-  position: absolute;
-  height: 5.5rem;            /* Footer height */
-
-} 
-/* #footer {
-  position: absolute;
-  bottom: 100;
+  height: 100px;
   width: 100%;
-  height: 2.5rem;            /* Footer height */
+  overflow: hidden;
+  /* padding-top: 0; */
+}
 
-#footer a {
-  float: left;
-  text-align: center;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  /* padding: 14px 16px; */
-  text-decoration: none;
-  font-size: 17px;
-}
+
 input{
-  display: block;   
+  padding:10px;
 }
+.colorInput{
+  padding:0;
+}
+#registerSection input{ 
+  display: block;
+
+}
+#loginSection input{
+  display: block;
+
+}
+
 
 label.error {
-  color: red;
-  font-weight: 100;
+color: red;
+font-weight: 100;
 }
 
 h1{
-  font-size: 5em;
-  font-weight: 600;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  color: white;
+  font-size: 7em;
+  /* text-shadow: 4px 4px 0px white; */
 }
 
-label{
-  font-size: 20px;
+label,span{
+font-size: 30px;
+font-family: Comic Sans MS, Comic Sans, cursive;
+
 }

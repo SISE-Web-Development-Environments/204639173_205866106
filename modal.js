@@ -8,16 +8,15 @@ function openDialog(object) {
     }
   }
   if (`${data}Dialog` == "loser100Dialog") {
-    console.log( document.getElementById("lblScore").value);
-    document.getElementById("loser100Dialog").innerText = "You are better than " + document.getElementById("lblScore").value + " points!";
+    document.getElementById("loserWithScore").innerHTML = "<br><br>You are better than " + document.getElementById("lblScore").innerText + " points!";
+
   }
-  // $(`#${data}Dialog`).dialog();
   $(`#${data}Dialog`).dialog({
     autoOpen: true,
         maxWidth:700,
         maxHeight: 400,
-        width: 600,
-        height: 250,
+        width: 700,
+        height: 400,
         modal: true,
       });
   $("div.alert")

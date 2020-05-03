@@ -19,11 +19,11 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<link rel="stylesheet" type="text/css" href="main.css" />
-	<link href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" rel="stylesheet" />
+	<link href="https://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" rel="stylesheet" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-	<script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
-	<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+	<script src="https://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+	<script src="https://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
 
 	<!-- <link rel="stylesheet" type="text/css" href="modal.css" /> -->
 </head>
@@ -53,6 +53,8 @@
 		const activatedSection = document.getElementsByClassName("activeSection");
 		if (activatedSection[0].id == "gameSection") {
 			sound.stop();
+			window.clearInterval(interval);
+			window.clearInterval(intervalMonster);
 		}
 		activatedSection[0].classList.remove("activeSection");
 
@@ -66,10 +68,8 @@
 
 
 		if (clickedName != "welcome") {
-			console.log($("#body"));
 			$("body").css("background-image", "url('background3.jpg')");
 		} else {
-			console.log($("#body"));
 			$("body").css("background-image", "url('background2.jpg')")
 		}
 		const newActivatedSection = document.getElementById("main").querySelector(`#${clickedName}Section`);
@@ -105,16 +105,17 @@
 		<!-- <a href="https://www.solodev.com" class="btn btn-info btn-lg cta-open">External Link</a>  -->
 
 	</div>
-	<div id="aboutDialog" class="alert" width="500px" height="300px">
-		Welcome to our Pacman project in Web Development enviroment course.
-		In the assignment we had a difficulty in the design but we enjoy it at the end.
-		<br>Submitting:Hen Debi(204639173), Shiran Golzar(205866106)
-		Hen:<a href="https://www.linkedin.com/in/hen-debi-0547ba1a2/" class="fa fa-linkedin"></a>
-		Shiran:<a href="https://www.linkedin.com/in/shiran-golzar-4762b210a/" class="fa fa-linkedin"></a>
+	<div id="aboutDialog" class="alert" width="600px" height="1000px" style="text-align: center;">
+		<label style="color: white;">
+			Welcome to our Pacman project in Web Development enviroment course.
+			In the assignment we had a difficulty in the design but we enjoy it at the end.
+			<br>Submitting:Hen Debi(204639173), Shiran Golzar(205866106)
+		</label>
+
 	</div>
 
 	<div id="main">
-		<section id="welcomeSection" class="activeSection" style="left: 10%;bottom: 45%; position: fixed;">
+		<section id="welcomeSection" style="left: 10%;bottom: 45%; position: fixed;" class="activeSection">
 
 			<div>
 				<button class="button" onclick="moveTo('login')" style="padding: 10px; width: 600;">Login
@@ -189,17 +190,23 @@
 				<button class="button" onclick="login()">
 					Login
 				</button>
-				<div data="wrongPassword" id="wrongPasswordDialog" class="alert">
-					Wrong password, try again.
+				<div data="wrongPassword" id="wrongPasswordDialog" class="alert" width="600px" height="1000px" style="text-align: center;font-size: 30px;">
+					<lable style="color:white;">
+						<br><br>Wrong password, try again.
+					</lable>
 				</div>
-				<div data="wrongUsername" id="wrongUsernameDialog" class="alert">Username doesn't exist, try again.
+				<div data="wrongUsername" id="wrongUsernameDialog" class="alert" width="600px" height="1000px" style="text-align: center;font-size: 30px;">
+					<lable style="color:white;"><br><br>Username doesn't exist, try again.
+					</lable>
 				</div>
 			</div>
 		</section>
-		<section id="settingSection" align=center>
+		<section id="settingSection" >
 			<h1>Setting</h1>
+			<br>
+			<br>
 			<form id="settingForm" role="form" method="post" action="">
-				<table align=center>
+				<table style="margin-left: auto;margin-right: auto;">
 					<tr>
 						<td></td>
 						<td>
@@ -210,7 +217,6 @@
 					<tr>
 						<td></td>
 						<td>
-							<!-- <label for="upKey">Up: </label> -->
 							<img id="upKey-img" src="arrowUp.png" width="60" height="60"></img>
 
 						</td>
@@ -218,14 +224,12 @@
 					</tr>
 					<tr>
 						<td>
-							<!-- <label for="left">Left: </label> -->
 							<input id="leftKeyField" placeholder="Press button" onkeydown="onPress(event,'left')"
 								name="leftKeyField" size="10" autocomplete="off"></input>
 							<img id="leftKey-img" src="arrowLeft.png" width="60" height="60"></img>
 						</td>
 						<td> </td>
 						<td>
-							<!-- <label for="right">Right: </label> -->
 							<img id="rightKey-img" src="arrowRight.png" width="60" height="60"></img>
 							<input id="rightKeyField" placeholder="Press button" onkeydown="onPress(event,'right')"
 								name="rightKeyField" type="text" size="10" autocomplete="off"></input>
@@ -234,7 +238,6 @@
 					<tr>
 						<td></td>
 						<td>
-							<!-- <label for="downKey">Down: </label> -->
 							<img id="dowmKey-img" src="arrowDown.png" width="60" height="60"></img>
 						</td>
 						<td></td>
@@ -248,183 +251,230 @@
 						<td></td>
 					</tr>
 				</table>
-				<br>
+				<br><br>
 				<label for="ballsNumber">Number of balls: </label><br>
-				<input id="ballsNumberField" class="input-range" type="range" value="2" min="2" max="90">
-				<span id="ballsNumberSpan" class="range-value"> 70</span>
+				<br>
 
-				</br>
+				<input id="ballsNumberField" class="input-range" type="range" value="60" min="60" max="90">
+				<span id="ballsNumberSpan" class="range-value"> 60</span>
+				<br>
+				<br>
 				<label for="ballsColor">Choose balls color:
 					<br>
-					<div>5 points: </div>
-					<input id="ballsColorfor5PointsField" name="ballsColorfor5PointsField" type="color"> </input>
-					<div>15 points: </div>
-					<input id="ballsColorfor15PointsField" name="ballsColorfor15PointsField" type="color"></input>
-					<div>25 points: </div>
-					<input id="ballsColorfor25PointsField" name="ballsColorfor25PointsField" type="color"></input>
+					<table style="margin-left: auto;margin-right: auto;">
+						<tr>
+							<td width=150>
+								<div>5 points </div>
+								<input id="ballsColorfor5PointsField" name="ballsColorfor5PointsField" type="color"
+									class="colorInput"> </input>
+							</td>
+							<td width=150>
+								<div>15 points </div>
+								<input id="ballsColorfor15PointsField" name="ballsColorfor15PointsField" type="color"
+									class="colorInput"></input>
+							</td>
+							<td width=150>
+								<div>25 points </div>
+								<input id="ballsColorfor25PointsField" name="ballsColorfor25PointsField" type="color"
+									class="colorInput"></input>
+							</td>
+						</tr>
+
+
+
+
+					</table>
+
+
+
 				</label>
+				<br>
+				<table style="margin-left: auto;margin-right: auto;">
+					<tr>
+						<td>
+							<label for="durationTime">Duration time:</label>
+						</td>
+						<td width=100>
+							<input id="durationTimeField" type="number" style="width: 5em" value="60" min="60"
+								name="durationTimeField"> </input>
+						</td>
+					</tr>
+				</table>
 				<br> <br>
-				<label for="durationTime">Duration time:
-					<input id="durationTimeField" type="number" value="60" min="6" name="durationTimeField"> </input>
-					<br> <br>
-
-					<label for="monsterNumber">Number monsters: </label><br>
-					<input id="monsterNumberField" class="input-range" type="range" value="2" min="1" max="4">
-					<span id="monsterNumbeSpan" class="range-value"> 2</span>
-					<br>
+				<label for="monsterNumber">Number of monsters: </label><br><br>
+				<input id="monsterNumberField" class="input-range" type="range" value="1" min="1" max="4">
+				<span id="monsterNumbeSpan" class="range-value"> 1</span>
+				<br><br>
 
 
 
-					<button class="button" id="submitSettingGame" onclick="submitSetting()"
-						type="button">Submit</button>
-					<button class="button" id="randomSettingGame" onclick="randomSetting()"
-						type="button">Random</button>
+				<button class="button" id="submitSettingGame" onclick="submitSetting()" type="button">Start</button>
+				<button class="button" id="randomSettingGame" onclick="randomSetting()" type="button">Random</button>
 
 			</form>
 		</section>
 
 		<section id="gameSection">
-			<div style="float: left; display: flex; justify-content: center;">
-				<div style="left: 10%; position: fixed; top: 20%;">
-					<table style="  font-weight: bold;  font-size: 20px; ">
-						<tr>
-							<td width="10"><label for="lblUsername">Player:</label></td>
-							<td width="50">
-								<div id="lblUsername" type="text"></div>
-							</td>
-						</tr>
-						<tr>
-							<td width="10"><img src="score.png" width="40" height="40"></img></td>
-							<td width="50">
-								<div id="lblScore" type="text"></div>
-							</td>
-						</tr>
-						<tr>
-							<td width="10"><img src="time.png" width="47" height="40"></img></td>
-							<td width="50">
-								<div id="lblTime" type="text"></div>
-							</td>
-						</tr>
-						<tr>
-							<td width="10"><img src="life.png" width="40" height="40"></img></td>
-							<td width="50">
-								<div id="lblLife" type="text" value="5"></div>
-							</td>
-						</tr>
-						<tr height="40"></tr>
-						<tr>
-							<div>
-								<table style="  font-weight: bold;  font-size: 20px; ">
-									<tr>
-										<td>
-											<img src="arrowUpSetting.jpg" width="47" height="40"></img>
-										</td>
-										<td>
-											<div id="buttonUpDiv"></div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="arrowDownSetting.jpg" width="47" height="40"></img>
-										</td>
-										<td>
-											<div id="buttonDownDiv"></div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="arrowRightSetting.png" width="47" height="40"></img>
-										</td>
-										<td>
-											<div id="buttonRightDiv"></div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img src="arrowLeftSetting.png" width="47" height="40"></img>
-										</td>
-										<td>
-											<div id="buttonLeftDiv"></div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<div>UP: </div>
-										</td>
-										<td>
-											<div id="numberOfBallsDiv"></div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<div>UP: </div>
-										</td>
-										<td>
-											<div id="numberOfMonsterDiv"></div>
-										</td>
-									</tr>
-								</table>
-								<table style="  font-weight: bold;  font-size: 20px;">
-									<tr>
-										<td>
-											<div>5 point: </div>
-										</td>
-										<td>
-											<div class="colorChoose" id="color5pointDiv"></div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<div>15 point: </div>
-										</td>
-										<td>
-											<div class="colorChoose" id="color15pointDiv"></div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<div>25 point: </div>
-										</td>
-										<td>
-											<div class="colorChoose" id="color25pointDiv">
-										</td>
-									</tr>
+			<div style="left: 10%; position: fixed; top: 15%;">
+				<table style="font-size:80%">
+					<tr>
+						<td width="10">
+							<label for="lblUsername">Player:</label>
+						</td>
+						<td width="50">
+							<span id="lblUsername" type="text"></span>
+						</td>
 
-								</table>
-							</div>
-						</tr>
-					</table>
+					</tr>
+				</table>
+			</div>
+
+			<div style="top:18%;position: fixed;left: 42.5%;">
+				<table style="  font-weight: bold;  font-size: 20px; ">
+					<tr>
+						<td width="15"><img src="score.png" width="40" height="40"></img></td>
+						<td width="70">
+							<div id="lblScore" type="text"></div>
+						</td>
+
+						<td width="15"><img src="time.png" width="51" height="40"></img></td>
+						<td width="70">
+							<div id="lblTime" type="text"></div>
+						</td>
+
+						<td width="15"><img src="life.png" width="40" height="40"></img></td>
+						<td width="70">
+							<div id="lblLife" type="text" value="5"></div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div id="game">
+				<canvas id="canvas" height="700" width="900" ></canvas>
+				<div data="winner" id="winnerDialog" class="alert" style="text-align: center"><label
+						style="color: white;"><br><br>WINNER!</label></div>
+				<div data="loser" id="loserDialog" class="alert" style="text-align: center"><label
+						style="color: white;"><br><br><br>LOSER!</label></div>
+				<div data="loser100" id="loser100Dialog" class="alert" style="text-align: center">
+					<label id="loserWithScore" style="color: white;"><br><br>
+					</label>
 				</div>
-				<button class="button" id="restartGame" type="button" onclick="restartGame()" style=" position: fixed;
-				right: 5%;
-				bottom: 10%; ">Restart
-					game</button>
-				<div id="game">
-					<canvas id="canvas" height="700" width="900" style="background-color: rgb(14, 7, 14);"></canvas>
-					<div data="winner" id="winnerDialog" class="alert">WINNER!</div>
-					<div data="loser" id="loserDialog" class="alert">LOSER!</div>
-					<div data="loser100" id="loser100Dialog" class="alert"></div>
-				</div>
+				<br><br>
+			</div>
+			<div style="left: 12%;top:40%;position: fixed; font-family: Comic Sans MS, Comic Sans, cursive;
+			;">
 
+				<table style="font-weight: bold;  font-size: 20px; ">
+					<tr>
+						<td>
+							<img src="arrowUp.png" width="47" height="40"></img>
+						</td>
+						<td width="100">
+							<div id="buttonUpDiv"></div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="arrowDown.png" width="47" height="40"></img>
+						</td>
+						<td width="100">
+							<div id="buttonDownDiv"></div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="arrowRight.png" width="47" height="40"></img>
+						</td>
+						<td width="100">
+							<div id="buttonRightDiv"></div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="arrowLeft.png" width="47" height="40"></img>
+						</td>
+						<td width="100">
+							<div id="buttonLeftDiv"></div>
+						</td>
+					</tr>
+				</table>
+				<br><br>
+				<table style="font-weight: bold;  font-size: 20px;text-align: left; ">
+					<tr>
+						<td width="50px">
+							<div>Balls: </div>
+						</td>
+						<td width="50px">
+							<div id="numberOfBallsDiv"></div>
+						</td>
+					</tr>
+					<tr>
+						<td width="60">
+							<div>Monsters: </div>
+						</td>
+						<td>
+							<div id="numberOfMonsterDiv"></div>
+						</td>
+					</tr>
+				</table>
+				<br><br>
+				<table style="  font-weight: bold;  font-size: 20px;">
+					<tr>
+						<td>
+							<div class="colorChoose" id="color5pointDiv"></div>
+						</td>
+						<td>
+							<div>5 points </div>
+						</td>
 
+					</tr>
+					<tr>
+						<td>
+							<div class="colorChoose" id="color15pointDiv"></div>
+						</td>
+						<td>
+							<div>15 points </div>
+						</td>
+
+					</tr>
+					<tr>
+						<td>
+							<div class="colorChoose" id="color25pointDiv">
+						</td>
+						<td>
+							<div>25 points </div>
+						</td>
+
+					</tr>
+
+				</table>
 
 			</div>
+			<button class="button" id="restartGame" type="button" onclick="restartGame()" style=" position: fixed;
+				right: 5%;
+				bottom: 10%; ">Restart
+				game</button>
+
+
+
+
 		</section>
 
 	</div>
-	<!-- 		
-	<footer align="center" id=footer  >
-		<br>
-		<a>This web site conatin the classic game of Pacman</a>
-		<a> | The web site was created for the Web Development Enviroments     |     For more details: 050-9801189</a>
-		<a> | Hen:</a>
-		<a href="https://www.linkedin.com/in/hen-debi-0547ba1a2/" class="fa fa-linkedin"></a>|
-		<a> | Shiran:</a>
-		<a href="https://www.linkedin.com/in/shiran-golzar-4762b210a/" class="fa fa-linkedin"></a>
-	
-	</footer> -->
+
+
 
 </body>
+<footer>
+	<br>
+	<a>Pacman Game</a>
+	<a> | The web site was created for the Web Development Enviroments course | For more details: 050-9801189</a>
+	<a> | Hen:</a>
+	<a href="https://www.linkedin.com/in/hen-debi-0547ba1a2/" class="fa fa-linkedin"></a>|
+	<a> | Shiran:</a>
+	<a href="https://www.linkedin.com/in/shiran-golzar-4762b210a/" class="fa fa-linkedin"></a>
+
+</footer>
 
 
 </html>

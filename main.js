@@ -7,26 +7,44 @@
         this.birthdate=birth;
       }
     }
-var users;
-$( document ).ready(function() {
 
-      var users=new Array();
-      var user1=new User("p","p","babi","H@.com","");
-      users.push(user1);
-      if(localStorage.getItem("users"==null)){
-        localStorage.setItem("users",JSON.stringify(users));
-      }
-      
- 
-});
+
+
+var users;
+window.onload = function() {
+
+    (function()
+{
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem('firstLoad')  )
+    {
+      localStorage['firstLoad'] = true;
+    //   window.location.reload();
+      users=new Array();
+      window.localStorage.setItem("users",JSON.stringify(users))
+      var user1=new User("p","p","p","p@.com","");
+      addUser(user1);
+    }
+  }
+})();
+}
+
+// $( document ).ready(function() {
+
+
+// });
+
 function addUser(user){
     users=  JSON.parse(localStorage.getItem("users"));
     users.push(user);
-    localStorage.removeItem("users");
-    localStorage.setItem("users",JSON.stringify(users));
+    window.localStorage.removeItem("users");
+    window.localStorage.setItem("users",JSON.stringify(users));
+
 }
 function getUser(userName){ 
-       users=  JSON.parse(localStorage.getItem("users"));
+
+    users =JSON.parse(window.localStorage.getItem("users"));
         for(var i=0;i<users.length;i++){
             if(users[i].username==userName){
                 return users[i];

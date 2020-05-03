@@ -104,26 +104,60 @@ function Start() {
 			var randomNum = Math.random();
 			var randomCandy = Math.floor(Math.random() * (monster_remain - 1));
 			if (((i == 1 && j == 1) || (i == 1 && j == 30) || (i == 22 && j == 1) || (i == 22 && j == 30)) && monster_remain > 0) {
-				if (monsters[monster_remain - 1].fiftee) {
-					monster_remain = monster_remain - 1;
-					board[i][j] = 1;// enter once time- pacmen place
-					monsters[monster_remain].i = i;
-					monsters[monster_remain].j = j;
-					monsters[monster_remain].fiftee = true;
-					isMoveRank = true;
-					monster_remain = monster_remain - 1;
-					board[i][j] = 1;// enter once time- pacmen place
-					monsters[monster_remain].i = i;
-					monsters[monster_remain].j = j;
-					monsters[monster_remain].fiftee = false;
-				} else {
-					monster_remain = monster_remain - 1;
-					board[i][j] = 1;// enter once time- pacmen place
-					monsters[monster_remain].i = i;
-					monsters[monster_remain].j = j;
-					monsters[monster_remain].fiftee = false;
+				console.log(monster_remain);
+				if(monster_remain==5 &&!isMoveRank){
+						let randomX = Math.floor(Math.random() * 23);
+						let randomY = Math.floor(Math.random() * 31);
+						while (board[randomX][randomY] != 1) {
+							randomX = Math.floor(Math.random() * 23);
+							randomY = Math.floor(Math.random() * 31);
+						}
+						monster_remain = monster_remain - 1;
+						board[randomX][randomY] = 1;// enter once time- pacmen place
+						monsters[monster_remain].i =randomX;
+						monsters[monster_remain].j = randomY;
+						isMoveRank = true;
+						monsters[monster_remain].fiftee = true;
+
+					}else if(!isMoveRank){
+						monster_remain = monster_remain - 1;
+						board[i][j] = 1;// enter once time- pacmen place
+						monsters[monster_remain].i = 22;
+						monsters[monster_remain].j = 30;
+						monsters[monster_remain].fiftee = true;
+						isMoveRank = true;
+					}
+
+						monster_remain = monster_remain - 1;
+						board[i][j] = 1;// enter once time- pacmen place
+						monsters[monster_remain].i = i;
+						monsters[monster_remain].j = j;
+						monsters[monster_remain].fiftee = false;
+
+
 				}
-			}
+
+
+
+				// if (monsters[monster_remain - 1].fiftee) {
+				// 	monster_remain = monster_remain - 1;
+				// 	board[i][j] = 1;// enter once time- pacmen place
+				// 	monsters[monster_remain].i = i;
+				// 	monsters[monster_remain].j = j;
+				// 	monsters[monster_remain].fiftee = true;
+				// 	monster_remain = monster_remain - 1;
+				// 	board[i][j] = 1;// enter once time- pacmen place
+				// 	monsters[monster_remain].i = i;
+				// 	monsters[monster_remain].j = j;
+				// 	monsters[monster_remain].fiftee = false;
+				// } else {
+				// 	monster_remain = monster_remain - 1;
+				// 	board[i][j] = 1;// enter once time- pacmen place
+				// 	monsters[monster_remain].i = i;
+				// 	monsters[monster_remain].j = j;
+				// 	monsters[monster_remain].fiftee = false;
+				// }
+			// }
 			else if (randomNum <= (1.0 * food_remain * 0.1) / cnt) {
 				food_remain--;
 				board[i][j] = 25;//25 point
@@ -334,8 +368,6 @@ function Draw() {
 						context.fillStyle = "black"; //color
 						context.fill();
 						break;
-						break;
-
 
 				}
 
@@ -715,10 +747,6 @@ function restartGame() {
 
 function setUserName(userName) {
 	username = userName;
-	// document.getElementById("lblUsername").innerText = userName;
-
-
-
 }
 
 function showSetting() {

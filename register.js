@@ -16,7 +16,7 @@ function submitRegister() {
                 required: true
             },
             passwordField: {
-                pattern: '^(?=.*\\d)(?=.*[a-zA-Z]).{8,200}$',
+                pattern: '^(?=.*\\d)(?=.*[a-zA-Z]).{6,200}$',
                 required: true,
                 minlength: 6
             },
@@ -75,7 +75,6 @@ function creatrUser() {
     let email = document.getElementById("emailField").value;
     let birthday = document.getElementById("birthdayField").value;
     var user = new User(userName, password, name, email, birthday ) ;
-    console.log(user);
     addUser(user);
 }
 
