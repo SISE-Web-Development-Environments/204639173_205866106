@@ -1,0 +1,82 @@
+.menuPage{
+    background-image: url("background3.jpg");
+    }
+    .button span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+      }
+      
+      .button span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+      }
+      .button:hover {
+        color: black;
+        box-shadow: 10px 10px 15px 10px whitesmoke;
+      }
+      .button:hover span {
+        padding-right: 25px;
+      }
+      
+      .button:hover span:after {
+        opacity: 1;
+        right: 0;
+      }
+      .button {
+        display: inline-block;
+        border-radius: 4px;
+        background-color: #ffff00;
+        border: none;
+        color: black;
+        text-align: center;
+        font-size: 28px;
+        padding: 20px;
+        width: 200px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+        outline: 100;
+        font-family: Comic Sans MS, Comic Sans, cursive;
+        font-weight: 500;
+      
+      }
+      
+input{
+    padding:10px;
+  }
+  .colorInput{
+    padding:0;
+  }
+  #registerSection input{ 
+    display: block;
+  
+  }
+  #loginSection input{
+    display: block;
+  
+  }
+  
+  
+  label.error {
+  color: red;
+  font-weight: 100;
+  }
+  
+  h1{
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    color: white;
+    font-size: 7em;
+  }
+  
+  label,span{
+  font-size: 30px;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  
+  }
+  

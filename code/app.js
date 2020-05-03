@@ -27,12 +27,12 @@ var sound;
 $(document).ready(function () {
 	context = canvas.getContext("2d");
 	life = 5;
-	sound = new sound("music.wav");
+	sound = new sound("sound/music.wav");
 });
 
 function Start() {
 
-	// sound.play();
+	sound.play();
 	document.getElementById("lblUsername").innerText = username;
 	setting = JSON.parse(sessionStorage.getItem("setting"));
 	showSetting();
@@ -104,7 +104,6 @@ function Start() {
 			var randomNum = Math.random();
 			var randomCandy = Math.floor(Math.random() * (monster_remain - 1));
 			if (((i == 1 && j == 1) || (i == 1 && j == 30) || (i == 22 && j == 1) || (i == 22 && j == 30)) && monster_remain > 0) {
-				console.log(monster_remain);
 				if(monster_remain==5 &&!isMoveRank){
 						let randomX = Math.floor(Math.random() * 23);
 						let randomY = Math.floor(Math.random() * 31);
@@ -136,28 +135,6 @@ function Start() {
 
 
 				}
-
-
-
-				// if (monsters[monster_remain - 1].fiftee) {
-				// 	monster_remain = monster_remain - 1;
-				// 	board[i][j] = 1;// enter once time- pacmen place
-				// 	monsters[monster_remain].i = i;
-				// 	monsters[monster_remain].j = j;
-				// 	monsters[monster_remain].fiftee = true;
-				// 	monster_remain = monster_remain - 1;
-				// 	board[i][j] = 1;// enter once time- pacmen place
-				// 	monsters[monster_remain].i = i;
-				// 	monsters[monster_remain].j = j;
-				// 	monsters[monster_remain].fiftee = false;
-				// } else {
-				// 	monster_remain = monster_remain - 1;
-				// 	board[i][j] = 1;// enter once time- pacmen place
-				// 	monsters[monster_remain].i = i;
-				// 	monsters[monster_remain].j = j;
-				// 	monsters[monster_remain].fiftee = false;
-				// }
-			// }
 			else if (randomNum <= (1.0 * food_remain * 0.1) / cnt) {
 				food_remain--;
 				board[i][j] = 25;//25 point
@@ -172,17 +149,7 @@ function Start() {
 				shape.j = j;
 				pacman_remain--;
 				board[i][j] = 2;// enter once time- pacmen place
-			} else if ((randomNum < (1.0 * (monster_remain + food_remain)) / cnt) && monster_remain > 0) {
-
-				// if (!isMoveRank &&monsters[monster_remain-1].fiftee ) {
-				// 	console.log("candy");
-				// 	monster_remain=monster_remain-1;
-				// 	monsters[monster_remain].i = i;
-				// 	monsters[monster_remain].j = j;
-				// 	monsters[monster_remain].fiftee = true;
-				// 	isMoveRank = true;
-				// 	board[i][j] = 50;
-				// }
+			
 
 			} else {
 
@@ -393,9 +360,9 @@ function Draw() {
 					if (monsters[index].i == i && monsters[index].j == j) {
 						if (candy) {
 							index = index - 1;
-							base_image.src = "m" + (index) + ".png";
+							base_image.src = "pictures/m" + (index) + ".png";
 						} else {
-							base_image.src = "m" + (index) + ".png";
+							base_image.src = "pictures/m" + (index) + ".png";
 
 						}
 					}
@@ -437,14 +404,14 @@ function Draw() {
 			} else if (board[i][j] == 100 || board[i][j] == 101) {
 				context.beginPath();
 				base_image = new Image();
-				base_image.src = "pill.png";
+				base_image.src = "pictures/life.png";
 				context.drawImage(base_image, center.x, center.y, centerX - 5, centerY - 5);
 
 			} else if (board[i][j] == 200 || board[i][j] == 201) {
 				context.beginPath();
 				base_image = new Image();
-				base_image.src = "clock.png";
-				context.drawImage(base_image, center.x, center.y, centerX - 5, centerY - 5);
+				base_image.src = "pictures/time.png";
+				context.drawImage(base_image, center.x, center.y, centerX, centerY);
 			}
 		}
 	}

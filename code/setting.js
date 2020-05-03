@@ -8,14 +8,20 @@ var downKey = 40;
 var rightKey = 39;
 var leftKey = 37;
 //for show setting in game:
-var upKeyString="ArrowUp";
-var downKeyString="ArrowDown";
-var rightKeyString="ArrowRight";
-var leftKeyString="ArrowRight";
+var upKeyString = "ArrowUp";
+var downKeyString = "ArrowDown";
+var rightKeyString = "ArrowRight";
+var leftKeyString = "ArrowRight";
 
 function onPress(e, keyName) {
-    $(`#${keyName}KeyField`).attr("placeholder", e.key).val("").focus().blur();
-    window[keyName + 'KeyString'] = e.key;
+    if (e.keyCode == 32) {
+        window[keyName + 'KeyString'] = "Space";
+        $(`#${keyName}KeyField`).attr("placeholder", "Space").val("").focus().blur();
+
+    } else {
+        window[keyName + 'KeyString'] = e.key;
+        $(`#${keyName}KeyField`).attr("placeholder", e.key).val("").focus().blur();
+    }
     window[keyName + 'Key'] = e.which;
 }
 
@@ -29,11 +35,8 @@ function randomSetting() {
     document.getElementById("monsterNumberField").value = monstes;
     $("#monsterNumbeSpan").text(document.getElementById("monsterNumberField").value);
     document.getElementById("ballsColorfor5PointsField").value = getRandomColor();
-    // $("#ballsColorfor5PointsField").css("background-color", document.getElementById("ballsColorfor5PointsField").value);
     document.getElementById("ballsColorfor15PointsField").value = getRandomColor();
-    // $("#ballsColorfor15PointsField").css("background-color", document.getElementById("ballsColorfor15PointsField").value);
     document.getElementById("ballsColorfor25PointsField").value = getRandomColor();
-    // $("#ballsColorfor25PointsField").css("background-color", document.getElementById("ballsColorfor25PointsField").value);
     upKey = 38;
     $("#upKeyField").attr("placeholder", "ArrowUp");
     downKey = 40;
@@ -41,7 +44,12 @@ function randomSetting() {
     rightKey = 39;
     $("#rightKeyField").attr("placeholder", "ArrowRight");
     leftKey = 37;
-    $("#leftKeyField").attr("placeholder","ArrowRight");
+    $("#leftKeyField").attr("placeholder", "ArrowRight");
+    upKeyString = "ArrowUp";
+    downKeyString = "ArrowDown";
+    rightKeyString = "ArrowRight";
+    leftKeyString = "ArrowRight";
+
 }
 
 function getRandomColor() {
@@ -65,6 +73,6 @@ function submitSetting() {
     sessionStorage.clear();
     sessionStorage.setItem("setting", JSON.stringify(setting));
     Start();
-    moveTo('game');
+    switchSection('game');
 
 }

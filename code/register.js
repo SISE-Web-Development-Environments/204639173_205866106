@@ -1,7 +1,3 @@
- 
-
-$(document).ready(function () {
-});
 
 
 function submitRegister() {
@@ -58,10 +54,10 @@ function submitRegister() {
 
         var user =getUser(username);
         if (user != null) {
-            openDialog(document.getElementById("registeUsernameExistsDialog"));
+            openDialog(document.getElementById("registerUsernameExistsDialog"));
         } else {
             creatrUser();
-            moveTo('login');
+            switchSection('login');
         }
     }
 
@@ -76,5 +72,6 @@ function creatrUser() {
     let birthday = document.getElementById("birthdayField").value;
     var user = new User(userName, password, name, email, birthday ) ;
     addUser(user);
+    
 }
 
