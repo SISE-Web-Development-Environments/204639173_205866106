@@ -2,123 +2,53 @@
 <html>
 
 <head>
-	<br>
-	<p></p>
-	<br><br>
-	<script src="./jquery-3.4.1.slim.min.js"></script>
-	<script src="./jquery-3.4.1.slim.min.js"></script>
+	<TITLE>PacMan by Hen&Shiran</TITLE>
 
-	<script type="text/javascript" src="./login.js"></script>
-	<script type="text/javascript" src="./main.js"></script>
-	<script type="text/javascript" src="./modal.js"></script>
-	<script type="text/javascript" src="./register.js"></script>
-	<script type="text/javascript" src="./setting.js"></script>
-	<script type="text/javascript" src="./app.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-	<link rel="stylesheet" type="text/css" href="main.css" />
-	<link href="https://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" rel="stylesheet" />
+	<script src="code/jquery-3.4.1.slim.min.js"></script>
+	<script type="text/javascript" src="code/login.js"></script>
+	<script type="text/javascript" src="code/main.js"></script>
+	<script type="text/javascript" src="code/modal.js"></script>
+	<script type="text/javascript" src="code/register.js"></script>
+	<script type="text/javascript" src="code/setting.js"></script>
+	<script type="text/javascript" src="code/app.js"></script>
+	<script type="text/javascript" src="code/controller.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 	<script src="https://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
 	<script src="https://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
 
-	<!-- <link rel="stylesheet" type="text/css" href="modal.css" /> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="style/main.css" />
+	<link rel="stylesheet" type="text/css" href="style/menu.css" />
+	<link rel="stylesheet" type="text/css" href="style/game.css" />
+	<link href="https://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" rel="stylesheet" />
+
 </head>
-<script>
 
 
-	function navClicked(identifier) {
-		/**
-		 * Disactivating the current activated navbar and section, and activating the destinated navbar and section.
-		 * @type {string}
-		 */
-		const clickedName = identifier.getAttribute("data-option");
-		// document.write(clickedName);
-
-		removeActivated();
-
-		addActivated(clickedName);
-
-	}
-
-	function removeActivated() {
-		/**
-		 * Removes the activated class from activated navbar and section.
-		 * @type {HTMLCollectionOf<Element>}
-		 */
-
-		const activatedSection = document.getElementsByClassName("activeSection");
-		if (activatedSection[0].id == "gameSection") {
-			sound.stop();
-			window.clearInterval(interval);
-			window.clearInterval(intervalMonster);
-		}
-		activatedSection[0].classList.remove("activeSection");
-
-	}
-
-	function addActivated(clickedName) {
-		/**
-		 * Adding to the destinated section and nvabar activated class.
-		 * @type {Element | null}
-		 */
-
-
-		if (clickedName != "welcome") {
-			$("body").css("background-image", "url('background3.jpg')");
-		} else {
-			$("body").css("background-image", "url('background2.jpg')")
-		}
-		const newActivatedSection = document.getElementById("main").querySelector(`#${clickedName}Section`);
-		newActivatedSection.classList.add("activeSection");
-		// var newActivatedNav = document.getElementsByClassName(`${clickedName}Nav`)[0];
-		// newActivatedNav.classList.add("activeNav");
-
-
-		//stopGame();
-
-	}
-
-	function moveTo(destination) {
-		removeActivated();
-
-		addActivated(destination);
-
-	}
-
-
-</script>
 
 <body id="body">
 	<div id="navbar">
-		<img src="./logo.png" id="logo" href="#" data-option="welcome" onclick="navClicked(this)" />
+		<img src="pictures/logo.png" id="logo" href="#" data="welcome" onclick="menuClick(this)" />
 		<ul>
-			<a class="PictureNav" href="#" data-option="welcome" onclick="navClicked(this)">Welcome</a>
-			<a class="Picture2Nav" href="#" data-option="register" onclick="navClicked(this)">Register</a>
-			<a class="Picture2Nav" href="#" data-option="login" onclick="navClicked(this)">Login</a>
+			<a class="PictureNav" href="#" data="welcome" onclick="menuClick(this)">Welcome</a>
+			<a class="Picture2Nav" href="#" data="register" onclick="menuClick(this)">Register</a>
+			<a class="Picture2Nav" href="#" data="login" onclick="menuClick(this)">Login</a>
 			<a class="trigger" href="#" data="about" onclick="openDialog(this)">About</a>
+			<b class="details" style="float: right;right: 1%;position: fixed;  font-size: 25px;">Coded by:Hen Debi & Shiran Golzar</b>
 		</ul>
 
-		<!-- <a href="https://www.solodev.com" class="btn btn-info btn-lg cta-open">External Link</a>  -->
 
 	</div>
-	<div id="aboutDialog" class="alert" width="600px" height="1000px" style="text-align: center;">
-		<label style="color: white;">
-			Welcome to our Pacman project in Web Development enviroment course.
-			In the assignment we had a difficulty in the design but we enjoy it at the end.
-			<br>Submitting:Hen Debi(204639173), Shiran Golzar(205866106)
-		</label>
 
-	</div>
 
 	<div id="main">
 		<section id="welcomeSection" style="left: 10%;bottom: 45%; position: fixed;" class="activeSection">
 
 			<div>
-				<button class="button" onclick="moveTo('login')" style="padding: 10px; width: 600;">Login
+				<button class="button" onclick="switchSection('login')" style="padding: 10px; width: 600;">Login
 				</button>
 			</div>
 			<br>
@@ -127,7 +57,7 @@
 
 			</br>
 			<div>
-				<button class="button" onclick="moveTo('register')" style="padding: 10px; width: 600;">
+				<button class="button" onclick="switchSection('register')" style="padding: 10px; width: 600;">
 					Register
 				</button>
 			</div>
@@ -139,7 +69,7 @@
 				<br>
 				<form id="registerForm" role="form" method="post" action="">
 
-					<label for="name">Your name: </label><br>
+					<label for="name">Full name: </label><br>
 					<input id="nameField" name="nameField" type="text" placeholder="Name"></input>
 					<br>
 
@@ -168,10 +98,13 @@
 					</br>
 				</form>
 				<button class="button" type="submit" onclick="submitRegister()">Sign-up</button>
-				<div class="alert" data="registeUsernameExists" id="registeUsernameExistsDialog"> Username already
-					exists,
-					please choose another username</div>
-			</div>
+
+				<div class="alert" data="registerUsernameExists" id="registerUsernameExistsDialog" style="text-align: center">
+					<label style="color: white;"><br><br> Username already
+						exists,
+						please choose another username
+					</label>
+				</div>
 		</section>
 		<section id="loginSection">
 			<div id="loginWindow" align=center>
@@ -217,7 +150,7 @@
 					<tr>
 						<td></td>
 						<td>
-							<img id="upKey-img" src="arrowUp.png" width="60" height="60"></img>
+							<img id="upKey-img" src="pictures/arrowUp.png" width="60" height="60"></img>
 
 						</td>
 						<td></td>
@@ -226,11 +159,11 @@
 						<td>
 							<input id="leftKeyField" placeholder="Press button" onkeydown="onPress(event,'left')"
 								name="leftKeyField" size="10" autocomplete="off"></input>
-							<img id="leftKey-img" src="arrowLeft.png" width="60" height="60"></img>
+							<img id="leftKey-img" src="pictures/arrowLeft.png" width="60" height="60"></img>
 						</td>
 						<td> </td>
 						<td>
-							<img id="rightKey-img" src="arrowRight.png" width="60" height="60"></img>
+							<img id="rightKey-img" src="pictures/arrowRight.png" width="60" height="60"></img>
 							<input id="rightKeyField" placeholder="Press button" onkeydown="onPress(event,'right')"
 								name="rightKeyField" type="text" size="10" autocomplete="off"></input>
 						</td>
@@ -238,7 +171,7 @@
 					<tr>
 						<td></td>
 						<td>
-							<img id="dowmKey-img" src="arrowDown.png" width="60" height="60"></img>
+							<img id="dowmKey-img" src="pictures/arrowDown.png" width="60" height="60"></img>
 						</td>
 						<td></td>
 					</tr>
@@ -255,8 +188,8 @@
 				<label for="ballsNumber">Number of balls: </label><br>
 				<br>
 
-				<input id="ballsNumberField" class="input-range" type="range" value="60" min="60" max="90">
-				<span id="ballsNumberSpan" class="range-value"> 60</span>
+				<input id="ballsNumberField" class="input-range" type="range" value="50" min="50" max="90">
+				<span id="ballsNumberSpan" class="range-value"> 50</span>
 				<br>
 				<br>
 				<label for="ballsColor">Choose balls color:
@@ -305,9 +238,6 @@
 				<input id="monsterNumberField" class="input-range" type="range" value="1" min="1" max="4">
 				<span id="monsterNumbeSpan" class="range-value"> 1</span>
 				<br><br>
-
-
-
 				<button class="button" id="submitSettingGame" onclick="submitSetting()" type="button">Start</button>
 				<button class="button" id="randomSettingGame" onclick="randomSetting()" type="button">Random</button>
 
@@ -332,17 +262,17 @@
 			<div style="top:18%;position: fixed;left: 42.5%;">
 				<table style="  font-weight: bold;  font-size: 20px; ">
 					<tr>
-						<td width="15"><img src="score.png" width="40" height="40"></img></td>
+						<td width="15"><img src="pictures/score.png" width="40" height="40"></img></td>
 						<td width="70">
 							<div id="lblScore" type="text"></div>
 						</td>
 
-						<td width="15"><img src="time.png" width="51" height="40"></img></td>
+						<td width="15"><img src="pictures/time.png" width="51" height="40"></img></td>
 						<td width="70">
 							<div id="lblTime" type="text"></div>
 						</td>
 
-						<td width="15"><img src="life.png" width="40" height="40"></img></td>
+						<td width="15"><img src="pictures/life.png" width="40" height="40"></img></td>
 						<td width="70">
 							<div id="lblLife" type="text" value="5"></div>
 						</td>
@@ -354,20 +284,19 @@
 				<div data="winner" id="winnerDialog" class="alert" style="text-align: center"><label
 						style="color: white;"><br><br>WINNER!</label></div>
 				<div data="loser" id="loserDialog" class="alert" style="text-align: center"><label
-						style="color: white;"><br><br><br>LOSER!</label></div>
+						style="color: white;"><br><br>LOSER!</label></div>
 				<div data="loser100" id="loser100Dialog" class="alert" style="text-align: center">
 					<label id="loserWithScore" style="color: white;"><br><br>
 					</label>
 				</div>
 				<br><br>
 			</div>
-			<div style="left: 12%;top:40%;position: fixed; font-family: Comic Sans MS, Comic Sans, cursive;
-			;">
+			<div style="left: 12%;top:40%;position: fixed; font-family: Comic Sans MS, Comic Sans, cursive;">
 
 				<table style="font-weight: bold;  font-size: 20px; ">
 					<tr>
 						<td>
-							<img src="arrowUp.png" width="47" height="40"></img>
+							<img src="pictures/arrowUp.png" width="47" height="40"></img>
 						</td>
 						<td width="100">
 							<div id="buttonUpDiv"></div>
@@ -375,7 +304,7 @@
 					</tr>
 					<tr>
 						<td>
-							<img src="arrowDown.png" width="47" height="40"></img>
+							<img src="pictures/arrowDown.png" width="47" height="40"></img>
 						</td>
 						<td width="100">
 							<div id="buttonDownDiv"></div>
@@ -383,7 +312,7 @@
 					</tr>
 					<tr>
 						<td>
-							<img src="arrowRight.png" width="47" height="40"></img>
+							<img src="pictures/arrowRight.png" width="47" height="40"></img>
 						</td>
 						<td width="100">
 							<div id="buttonRightDiv"></div>
@@ -391,7 +320,7 @@
 					</tr>
 					<tr>
 						<td>
-							<img src="arrowLeft.png" width="47" height="40"></img>
+							<img src="pictures/arrowLeft.png" width="47" height="40"></img>
 						</td>
 						<td width="100">
 							<div id="buttonLeftDiv"></div>
@@ -452,26 +381,26 @@
 			</div>
 			<button class="button" id="restartGame" type="button" onclick="restartGame()" style=" position: fixed;
 				right: 5%;
-				bottom: 10%; ">Restart
-				game</button>
-
-
-
-
+				bottom: 10%; ">New game</button>
 		</section>
 
 	</div>
+	<div id="aboutDialog" class="alert" width="600px" height="1000px" style="text-align: center;">
+		<label style="color: white;">
+			Welcome to our Pacman project in Web Development Enviroment course.<br>
+			We used in "jquery.validate" plugin and modal-dialog plugin.
+			<br>Submitting: Hen Debi(204639173)<br> Shiran Golzar(205866106)
+		</label>
 
-
-
+	</div>
 </body>
 <footer>
 	<br>
-	<a>Pacman Game</a>
+	<a>Pacman Game Ⓒ</a>
 	<a> | The web site was created for the Web Development Enviroments course | For more details: 050-9801189</a>
 	<a> | Hen:</a>
 	<a href="https://www.linkedin.com/in/hen-debi-0547ba1a2/" class="fa fa-linkedin"></a>|
-	<a> | Shiran:</a>
+	<a>  Shiran:</a>
 	<a href="https://www.linkedin.com/in/shiran-golzar-4762b210a/" class="fa fa-linkedin"></a>
 
 </footer>
