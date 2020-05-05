@@ -27,7 +27,7 @@ var sound;
 $(document).ready(function () {
 	context = canvas.getContext("2d");
 	life = 5;
-	sound = new sound("sound/music.wav");
+	sound = new sound("sound/music.mp3");
 });
 
 function Start() {
@@ -793,7 +793,12 @@ function sound(src) {
 	this.sound.style.display = "none";
 	document.body.appendChild(this.sound);
 	this.play = function(){
+
 	  this.sound.play();
+	  this.sound.volume=0.03;
+
+
+
 	}
 	this.stop = function(){
 	  this.sound.pause();
